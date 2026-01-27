@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: linear-gradient(
+    120deg,
+    #ff4d00,
+    #000000,
+    #ff5005
+  );
+
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* GRADIENT ANIMATION */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+ /* header start */
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.218);
+  backdrop-filter: blur(8px);
+}
+
+/* LOGO */
+.logo img {
+  width: 90px;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links li {
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-links li:hover {
+  color: #ff5005;
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: #ff5005;
+  border-radius: 8px;
+  display: none;
+  min-width: 180px;
+}
+
+.dropdown-menu p {
+  padding: 10px;
+  color: white;
+}
+
+.dropdown-menu p:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+/* BUTTON */
+.enroll-btn {
+  background: #ff5005;
+  border: none;         
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.enroll-btn:hover {
+  background: #ff6a4d;
+}
+ /* header end */
+
+ 
+/* HERO SECTION */
+
+
+
+.hero h1 {
+  font-size: 72px;
+  color: #ffffff;
+
+  text-shadow:    
+    0 0 10px #ff5005,
+    0 0 20px #ff5005,
+    0 0 40px #ff0000,
+    0 0 80px #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+}
+
+.hero h2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.typing-text {
+  font-size: 30px;  
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #ff5005,
+    0 0 20px hsl(0, 100%, 100%);
+  border-right: 2px solid #ff5005;
+  padding-right: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.hero button{
+    margin-top: 15px;
+}
+    
+.hero{
+    
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 600px;
+  height: 200px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.292);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 10px 35px rgba(255, 255, 255, 0.6);
+}
+
+.enroll-btn a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+.reg-form h2{
+ text-align: center;
+ color: #ffffff;
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-size: 35px;
+}
+
+.reg-form P{
+ text-align: center;
+ color: #ffffff;
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-size: 15px;
+}
+
+.reg-form {
+  background: rgba(255, 0, 0, 0.351); /* transparent orange */
+  height: 1500px;
+  margin-top: 150px;
+  border-radius: 40px;
+  
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  border: 1px solid rgba(255, 0, 0, 0.718);
+  box-shadow: 0 19px 90px rgb(0, 0, 0);
+}
+
+.container{
+  width: 1200px;
+  margin: auto;
+}
+.details {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+}
+
+/* location icon + text in one line */
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* location icon */
+.loc {
+  width: 20px;
+  height: auto;
+}
+
+/* heading text */
+.details p {
+  color: #000;
+  font-size: 15px;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* form rows */
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.form-select {
+  flex: 1;
+  min-width: 200px;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(47, 46, 46, 0.55);
+  color: #fff;
+  font-size: 16px;
+}
+
+
+
+.form-long {
+  flex: 1;
+  min-width: 200px;
+  height: 100px;
+  padding: 0 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(47, 46, 46, 0.55);
+  color: #fff;
+  font-size: 16px;
+  text-align: top;
+}
+.full-width {
+  flex: 1 0 100%;
+}

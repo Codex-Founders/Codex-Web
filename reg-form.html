@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code X</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="reg-form.css" />
+</head>
+
+<body>
+
+  <!-- BACKGROUND EFFECT -->
+  <div class="bg-gradient"></div>
+  <div class="bg-noise"></div>
+<!-- HEADER START -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="./Images/codex withou bg head.png" alt="Code X Logo">
+    </div>
+
+    <ul class="nav-links">
+     <a href="index.html">Home</a>
+      <li>About</li>
+
+      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
+        Select Course
+        <div class="dropdown-menu" id="courseMenu">
+          <p>Graphic Designing</p>
+          <p>Web Development</p>
+          <p>Data Science</p>
+          <p>Cyber Security</p>
+        </div>
+      </li>
+
+      <li>Campuses</li>
+      <li>Check Result</li>
+    </ul>
+
+    <button class="enroll-btn">Enroll Now</button>
+  </header>
+<!-- HEADER-END -->
+
+
+ <div class="container">
+<section class="reg-form">
+  <h2>REGISTRATION FORM</h2>
+  <p>START YOUR JOURNEY TOWARDS EXCELLENCE. FILL OUT THE FORM TO APPLY FOR OUR COURSE</p>
+          <section>
+  <div class="details">
+  <div class="location-row">
+    <img class="loc" src="Images/location.png" alt="location">
+    <p>LOCATION AND COURSE DETAIL'S</p>
+  </div>
+
+  <div class="form-row">
+    <select name="country" class="form-select">
+      <option value="">Select Country</option>                                         
+      <option value="pakistan">Pakistan</option>
+      <option value="india">India</option>
+      <option value="dubai">Dubai</option>
+    </select>
+                                                                               
+    <select name="class" class="form-select">               
+      <option value="">Select Class Preference</option>
+      <option value="online">Online</option>
+      <option value="onsite">Onsite</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <select name="gender" class="form-select">
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <select name="city" class="form-select">
+      <option value="">Select City</option>
+      <option value="karachi">Karachi</option>
+      <option value="lahore">Lahore</option>
+      <option value="islamabad">Islamabad</option>
+      <option value="faisalabad">Faisalabad</option>
+      <option value="peshawar">Peshawar</option>
+      <option value="quetta">Quetta</option>
+      <option value="rawalpindi">Rawalpindi</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <select name="course" class="form-select full-width">
+      <option value="">Select Course</option>
+      <option value="web-development">Web Development</option>
+      <option value="ai">AI</option>
+      <option value="cybersecurity">Cybersecurity</option>
+      <option value="data-science">Data Science</option>
+    </select>
+  </div>
+<!-- persoanl -->
+  <div class="personal-info">
+  <div class="location-row">
+    <img class="loc" src="Images/user.png" alt="location">
+    <p>PERSONAL-INFORMATION</p>
+  </div>
+
+  <div class="form-row">
+    <input class="form-select" type="text" placeholder="Enter your full name">
+
+<input class="form-select" type="text" placeholder="Enter father's name">
+  </div>
+
+  <div class="form-row">
+<input class="form-select" type="text" placeholder="Your.email@example.com">
+
+<input class="form-select" type="number" placeholder="phone number">
+  </div>
+   
+  <div class="form-row">
+<input class="form-select" type="number" placeholder="Enter your 13 digit CNIC">
+
+<input class="form-select" type="number" placeholder="Father's CNIC (optional)*">
+  </div>
+
+  <div class="form-row">
+<input class="form-select" type="date" placeholder="">
+  </div>
+
+
+    <div class="form-row">                                    
+<input class="form-long" type="text" placeholder="Enter your address">
+  </div>
+
+
+<!-- education -->
+  <div class="personal-info">
+  <div class="location-row">
+    <img class="loc" src="Images/mortarboard.png                                                                                                                  " alt="location">
+    <p>EDUCATION AND PERSONAL-INFORMATION</p>
+  </div>
+
+  <div class="form-row">
+    <input class="form-select" type="text" placeholder="Enter your full name">
+
+<input class="form-select" type="text" placeholder="Enter father's name">
+  </div>
+
+  <div class="form-row">
+<input class="form-select" type="text" placeholder="Your.email@example.com">
+
+<input class="form-select" type="number" placeholder="phone number">
+  </div>
+   
+  <div class="form-row">
+<input class="form-select" type="number" placeholder="Enter your 13 digit CNIC">
+
+<input class="form-select" type="number" placeholder="Father's CNIC (optional)*">
+  </div>
+
+  <div class="form-row">
+<input class="form-select" type="date" placeholder="">
+  </div>
+
+
+    <div class="form-row">
+<input class="form-long" type="text" placeholder="Enter your address">
+  </div>
+
+
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div> 
+
+  <script src="script.js"></script>
+</body>
+</html>
