@@ -41,6 +41,7 @@ body {
   background: rgba(0, 0, 0, 0.218);
   backdrop-filter: blur(8px);
   z-index: 1000;
+  
 }
  
 .navbar a{
@@ -171,7 +172,26 @@ body {
     0 10px 35px rgba(255, 255, 255, 0.6);
 }
 
-.enroll-btn a{
+.hero-btn a{
   text-decoration: none;
   color: #ffffff;
+}
+
+
+
+.hero-btn {
+  background: #ff5005;
+  border: none;         
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.hero-btn:hover {
+  background: #ff6a4d;
+    transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.35);
 }

@@ -1,0 +1,144 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+
+  color:#fff;
+}
+
+/* HERO */
+.hero-about{
+  height:60vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-about h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:60px;
+  letter-spacing:4px;
+}
+
+.hero-about span{
+  color:#ff6a00;
+  text-shadow:0 0 25px #ff6a00;
+}
+
+.hero-about p{
+  margin-top:10px;
+  opacity:.8;
+}
+
+/* GLASS EFFECT */
+.glass{
+  background:rgba(255,106,0,.08);
+  backdrop-filter:blur(12px);
+  border-radius:25px;
+  box-shadow:0 0 40px rgba(255,106,0,.3);
+}
+
+/* VISION */
+.vision{
+  max-width:900px;
+  margin:50px auto;
+  padding:50px;
+  text-align:center;
+}
+
+.vision h2{
+  color:#ff6a00;
+  margin-bottom:15px;
+}
+
+/* COURSES */
+.courses{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  padding:60px;
+}
+
+.course{
+  padding:35px;
+  border-radius:25px;
+  background:rgba(0,0,0,.5);
+  transition:.4s;
+}
+
+.course h3{
+  color:#ff6a00;
+  margin-bottom:10px;
+}
+
+.course:hover{
+  transform:translateY(-15px) scale(1.03);
+}
+
+/* GLOW */
+.glow{
+  box-shadow:0 0 30px rgba(255,106,0,.35);
+}
+
+/* WHY */
+.why{
+  max-width:900px;
+  margin:80px auto;
+  padding:50px;
+  text-align:center;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.why-grid span{
+  padding:15px;
+  border-radius:15px;
+  background:rgba(0,0,0,.6);
+  box-shadow:0 0 20px rgba(255,106,0,.3);
+}
+
+/* FOUNDERS */
+.founders{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.founder-wrap{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.founder-card{
+  width:260px;
+  padding:25px;
+  border-radius:30px;
+  background:rgba(0,0,0,.6);
+  transition:.4s;
+}
+
+.founder-card img{
+  width:100%;
+  border-radius:20px;
+  margin-bottom:15px;
+}
+
+.founder-card:hover{
+  transform:scale(1.08);
+}
+
+.founder-card h4{
+  color:#ff6a00;
+}
