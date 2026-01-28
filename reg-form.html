@@ -10,212 +10,133 @@
 
 <body>
 
-  <!-- BACKGROUND EFFECT -->
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
-<!-- HEADER START -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="./Images/codex withou bg head.png" alt="Code X Logo">
-    </div>
+<!-- BACKGROUND -->
+<div class="bg-gradient"></div>
+<div class="bg-noise"></div>
 
-    <ul class="nav-links">
-     <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+<!-- HEADER -->
+<header class="navbar">
+  <div class="logo">
+    <img src="./Images/codex withou bg head.png" alt="Code X Logo">
+  </div>
 
-      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
-        Select Course
-        <div class="dropdown-menu" id="courseMenu">
-          <p><a href="reg-form.html">graphic designing</a></p>
-          <p><a href="reg-form.html">web-development</a></p>
-          <p><a href="reg-form.html">data science</a></p>
-          <p><a href="reg-form.html">cyber security</a></p>
-        </div>
-      </li>
+  <ul class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
 
-      <li><a href="campuses.html">Campuses</a></li>
-      <li><a href="check.html">Check Result</a></li>
-    </ul>
+    <li class="dropdown" onmouseover="show()" onmouseout="hide()">
+      Select Course
+      <div class="dropdown-menu" id="courseMenu">
+        <p><a href="reg-form.html">graphic designing</a></p>
+        <p><a href="reg-form.html">web-development</a></p>
+        <p><a href="reg-form.html">data science</a></p>
+        <p><a href="reg-form.html">cyber security</a></p>
+      </div>
+    </li>
 
-    <button class="enroll-btn">Enroll Now</button>
-  </header>
-<!-- HEADER-END -->
+    <li><a href="campuses.html">Campuses</a></li>
+    <li><a href="check.html">Check Result</a></li>
+  </ul>
 
+  <button class="enroll-btn">Enroll Now</button>
+</header>
 
- <div class="container">
+<!-- FORM CONTAINER -->
+<div class="container">
+
 <section class="reg-form">
   <h2>REGISTRATION FORM</h2>
   <p>START YOUR JOURNEY TOWARDS EXCELLENCE. FILL OUT THE FORM TO APPLY FOR OUR COURSE</p>
-          <section>
+
+  <!-- ✅ FORM START (ONLY ONCE) -->
+  <form action="submit" method="post">
+
   <div class="details">
-  <div class="location-row">
-    <img class="loc" src="Images/location.png" alt="location">
-    <form action="submit">
-    <p>LOCATION AND COURSE DETAIL'S</p>
-  </div>
 
-  <div class="form-row">
-    <select name="country" class="form-select">
-      <option value="" disabled selected hidden>Select Country</option>                                         
-      <option value="pakistan">Pakistan</option>
-      <option value="india">India</option>
-      <option value="dubai">Dubai</option>
-    </select>
-                                                                               
-    <select name="class" class="form-select">               
-      <option value="" disabled selected hidden>Select Class Preference</option>
-      <option value="online">Online</option>
-      <option value="onsite">Onsite</option>
-    </select>
-  </div>
-
-  <div class="form-row">
-    <select name="gender" class="form-select">
-      <option value="" disabled selected hidden>Select Gender</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-
-    <select name="city" class="form-select">
-      <option value="" disabled selected hidden>Select City</option>
-      <option value="karachi">Karachi</option>
-      <option value="lahore">Lahore</option>
-      <option value="islamabad">Islamabad</option>
-      <option value="faisalabad">Faisalabad</option>
-      <option value="peshawar">Peshawar</option>
-      <option value="quetta">Quetta</option>
-      <option value="rawalpindi">Rawalpindi</option>
-    </select>
-  </div>
-
-  <div class="form-row">
-    <select name="course" class="form-select full-width">
-      <option value="" disabled selected hidden>Select Course</option>
-      <option value="web-development">Web Development</option>
-      <option value="ai">AI</option>
-      <option value="cybersecurity">Cybersecurity</option>
-      <option value="data-science">Data Science</option>
-    </select>
-  </div>
-<!-- persoanl -->
-  <div class="personal-info">
-  <div class="location-row">
-    <img class="loc" src="Images/user.png" alt="location">
-    <p>PERSONAL-INFORMATION</p>
-  </div>
-
-  <div class="form-row">
-    <input class="form-select" type="text" placeholder="Enter your full name">
-
-<input class="form-select" type="text" placeholder="Enter father's name">
-  </div>
-
-  <div class="form-row">
-<input class="form-select" type="text" placeholder="Your.email@example.com">
-
-<input class="form-select" type="number" placeholder="phone number">
-  </div>
-   
-  <div class="form-row">
-<input class="form-select" type="number" placeholder="Enter your 13 digit CNIC">
-
-<input class="form-select" type="number" placeholder="Father's CNIC (optional)*">
-  </div>
-
-  <div class="form-row">
-<input class="form-select" type="date" placeholder="">
-  </div>
-
-
-    <div class="form-row">                                    
-<input class="form-long" type="text" placeholder="Enter your address">
-  </div>
-
-
-<!-- education -->
-  <div class="personal-info">
-  <div class="location-row">
-    <img class="loc" src="Images/mortarboard.png                                                                                                                  " alt="location">
-    <p>EDUCATION TECHNICAL DETAILS</p>
-  </div>
+    <!-- LOCATION -->
+    <div class="location-row">
+      <img class="loc" src="Images/location.png">
+      <p>LOCATION AND COURSE DETAIL'S</p>
+    </div>
 
     <div class="form-row">
-    <select name="country" class="form-select">
-       <option value="" disabled selected hidden>Select Course</option>
-      <option value="pakistan">Begginer</option>
-      <option value="india">Intermediate</option>
-      <option value="dubai">Advance</option>
-      <option value="dubai">Expert</option>
-    </select>
-                                                                               
-    <select name="class" class="form-select">               
-      <option value="" disabled selected hidden>Last Qualification</option>
-      <option value="online">Matriculation</option>
-      <option value="onsite">Intermediate</option>
-      <option value="onsite">Undergraduate</option>
-      <option value="onsite">Bachelor's Degree</option>
-      <option value="onsite">Master's Degree</option>
-    </select>
+      <select class="form-select">
+        <option hidden>Select Country</option>
+        <option>Pakistan</option>
+        <option>India</option>
+        <option>Dubai</option>
+      </select>
 
-    <select name="class" class="form-select">               
-      <option value="" disabled selected hidden>Heard from?</option>
-      <option value="online">Facebook</option>
-      <option value="onsite">Instagram</option>
-      <option value="onsite">Youtube</option>
-      <option value="onsite">TikTok</option>
-      <option value="onsite">Google Search</option>
-      <option value="onsite">Whatsapp</option>
-      <option value="onsite">SMIT Website</option>
-      <option value="onsite">Friend / Family</option>
-      <option value="onsite">Teacher Institute</option>
-      <option value="onsite">Twitter / X</option>
-      <option value="onsite">LinkedIn</option>
-      <option value="onsite">Other</option>
-    </select>
+      <select class="form-select">
+        <option hidden>Class Preference</option>
+        <option>Online</option>
+        <option>Onsite</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <select class="form-select">
+        <option hidden>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <select class="form-select">
+        <option hidden>City</option>
+        <option>Karachi</option>
+        <option>Lahore</option>
+        <option>Islamabad</option>
+      </select>
+    </div>
+
+    <!-- PERSONAL INFO -->
+    <div class="location-row">
+      <img class="loc" src="Images/user.png">
+      <p>PERSONAL INFORMATION</p>
+    </div>
+
+    <div class="form-row">
+      <input class="form-select" placeholder="Full Name">
+      <input class="form-select" placeholder="Father Name">
+    </div>
+
+    <div class="form-row">
+      <input class="form-select" placeholder="Email">
+      <input class="form-select" placeholder="Phone">
+    </div>
+
+    <!-- TERMS -->
+    <div class="term-condition">
+      <div class="term-header">
+        <img src="./Images/terms-and-conditions.png">
+        <h3>Terms & Conditions</h3>
+      </div>
+
+      <div class="term-item">
+        <input type="checkbox" required> I confirm information is correct
+      </div>
+
+      <div class="term-item">
+        <input type="checkbox" required> I agree with CODE X rules
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-wrap">
+      <button type="submit" class="submit-btn">
+        Submit Application
+      </button>
+    </div>
+
   </div>
-</div> 
+  </form>
+  <!-- ✅ FORM END -->
 
-
-  <div class="term-condition">
-
-  <!-- heading -->
-  <div class="term-header">
-    <img src="./Images/terms-and-conditions.png" alt="Terms & Conditions" id="term-img">
-    <h3>Terms & Conditions</h3>
-  </div>
-
-  <!-- term 1 -->
-  <div class="term-item">
-    <input type="checkbox" id="term1" required>
-    <label for="term1">
-      I confirm that all the information provided by me is true and correct.
-    </label>
-  </div>
-
-  <!-- term 2 -->
-  <div class="term-item">
-    <input type="checkbox" id="term2" required>
-    <label for="term2">
-      I agree to follow all rules, regulations, and policies of CODEX.
-    </label>
-  </div>
-
-  <!-- term 3 -->
-  <div class="term-item">
-    <input type="checkbox" id="term3" required>
-    <label for="term3">
-      I understand that CODEX may update its terms and conditions at any time.
-    </label>
-  </div>
+</section>
 </div>
-<div class="submit-wrap">
-  <button type="submit" class="submit-btn">
-    Submit Application
-  </button>
-</div>
-</form>
+<!-- ✅ CONTAINER END -->
 
-<!-- FOOTER START -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
     <!-- Logo & Description -->
@@ -260,10 +181,12 @@
 
   <!-- Footer Bottom -->
   <div class="footer-bottom">
-    <p>© 2023 - 2026 Code X. All rights reserved.</p>
+    <p>© 2026 - 2026 Code X. All rights reserved. <br> Developed by Ahmed & Mudasir!</p>
   </div>
 </footer>
-<!-- FOOTER END --
-  <script src="script.js"></script>
+<!-- FOOTER END -->
+
+
+<script src="script.js"></script>
 </body>
 </html>

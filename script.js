@@ -23,7 +23,7 @@ let letter = '';
   letter = currentText.slice(0, ++index);
 
   document.querySelector('.typing-text').textContent = letter;
-
+ 
   if (letter.length === currentText.length) {
     setTimeout(() => {
       index = 0;

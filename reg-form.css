@@ -349,3 +349,7 @@ body {
   cursor: not-allowed;
   box-shadow: none;
 }
+
+.footer{
+  margin-top: 90px; /* automatically footer ko bottom me push kare */
+}
