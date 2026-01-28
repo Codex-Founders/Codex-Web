@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code X - Home</title>
+  <title>Code X - Campuses</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="campuses.css" />
 </head>
 <body>
-
-  <!-- BACKGROUND EFFECT -->
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
 
   <!-- HEADER START -->
   <header class="navbar">
@@ -44,15 +41,61 @@
   </header>
   <!-- HEADER-END -->
 
-  <section class="hero">
-    <h1>CODE X</h1>
-    <p><span class="typing-text"></span></p>
-    <button class="hero-btn"><a href="reg-form.html">REGISTRATION FORM</a></button>
-    <a class="hero-btn" href="check.html#download">DOWNLOAD ID-CARD</a>
+ <!-- OUR CAMPUSES -->
+  <section class="campuses-section">
+    <h1>Our Campuses</h1>
+    <p>Explore our campuses across Pakistan and Dubai, designed for tech learning and innovation.</p>
+    
+    <div class="campus-cards">
+      <div class="campus-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Karachi Campus</h3>
+        <p>Main campus with full labs for Web Dev, AI, and Cyber Security.</p>
+        <p><strong>Address:</strong> Clifton, Karachi</p>
+        <p><strong>Contact:</strong> +92 300 1234567</p>
+      </div>
 
+      <div class="campus-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Lahore Campus</h3>
+        <p>Focus on Graphic Design, Data Science, and practical projects.</p>
+        <p><strong>Address:</strong> Gulberg, Lahore</p>
+        <p><strong>Contact:</strong> +92 321 7654321</p>
+      </div>
+
+      <div class="campus-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Islamabad Campus</h3>
+        <p>Advanced labs for AI, Cyber Security, and programming bootcamps.</p>
+        <p><strong>Address:</strong> F-10/1, Islamabad</p>
+        <p><strong>Contact:</strong> +92 300 1122334</p>
+      </div>
+
+      <div class="campus-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Dubai Campus</h3>
+        <p>International campus with professional mentoring & workshops.</p>
+        <p><strong>Address:</strong> Dubai Silicon Oasis</p>
+        <p><strong>Contact:</strong> +971 50 1234567</p>
+      </div>
+    </div>
   </section>
 
-<!-- FOOTER START -->
+  <!-- CONTACT / GET DIRECTIONS -->
+  <section class="contact-us">
+    <h2>Get in Touch</h2>
+    <p>Have questions or want directions? Send us a message!</p>
+
+    <form class="contact-form" action="#" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+
+  <!-- FOOTER START -->
 <footer class="footer">
   <div class="footer-container">
     <!-- Logo & Description -->
@@ -100,14 +143,8 @@
     <p>© 2023 - 2026 Code X. All rights reserved.</p>
   </div>
 </footer>
-<!-- FOOTER END -->
+<!-- FOOTER END -- 
 
-
-
-
-
-
-  
   <script src="script.js"></script>
 </body>
 </html>

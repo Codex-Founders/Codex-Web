@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code X - Home</title>
+  <title>Code X - Campuses</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="campuses.css" />
+  <link rel="stylesheet" href="check.css">
 </head>
 <body>
-
-  <!-- BACKGROUND EFFECT -->
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
 
   <!-- HEADER START -->
   <header class="navbar">
@@ -42,15 +40,32 @@
 
     <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
-  <!-- HEADER-END -->
 
-  <section class="hero">
-    <h1>CODE X</h1>
-    <p><span class="typing-text"></span></p>
-    <button class="hero-btn"><a href="reg-form.html">REGISTRATION FORM</a></button>
-    <a class="hero-btn" href="check.html#download">DOWNLOAD ID-CARD</a>
+  
+  <section class="check-result-section">
+    <div class="glass-container">
+      <h1>Check Your Result</h1>
+      <p>Enter your roll number to view your results</p>
 
+      <form class="check-result-form" action="#" method="POST">
+        <input type="text" name="rollnumber" placeholder="ENTER YOUR ROLL NUMBER" required>
+        <button type="submit"><i class="fas -magnifying-glass"></i> Search Result</button>
+      </form>
+    </div>
   </section>
+
+    <section id="download" class="download-id-section">
+    <div class="download-glass-container">
+        <h1>Enter the CNIC you provided during form submission</h1>
+        <p>Don't use dashes (-) in CNIC number</p>
+
+        <form class="download-id-form" action="#" method="POST">
+        <input type="text" name="cnic" placeholder="ENTER YOUR CNIC" required>
+        <button type="submit"><i class="fas fa-download"></i> Download Your ID Card</button>
+        </form>
+    </div>
+</section>
+
 
 <!-- FOOTER START -->
 <footer class="footer">
@@ -100,14 +115,8 @@
     <p>© 2023 - 2026 Code X. All rights reserved.</p>
   </div>
 </footer>
-<!-- FOOTER END -->
+<!-- FOOTER END --
 
 
-
-
-
-
-  
-  <script src="script.js"></script>
 </body>
 </html>
