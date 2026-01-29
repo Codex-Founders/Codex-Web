@@ -49,7 +49,8 @@ body {
   z-index: 1000;
   
 }
- 
+
+
 .navbar a{
   text-decoration: none;
   color: white;
@@ -57,6 +58,31 @@ body {
   cursor: pointer;
   position: relative;  
 }
+
+.nav-links li a {
+  color: white;             /* default color for all links */
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* Hover effect */
+.nav-links li a:hover {
+  color: #ff5005;           /* hover color */
+}
+
+/* Active/current link */
+.nav-links li a.active {
+  color: #ff5005;           /* highlight color for active link */
+  font-weight: bold;         /* optional: makes it stand out */
+}
+
+
+
+
+
 
 /* LOGO */
 .logo img {
@@ -77,9 +103,6 @@ body {
   position: relative;
 }
 
-.nav-links li:hover {
-  color: #ff5005;
-}
 
 /* DROPDOWN */
 .dropdown-menu {
