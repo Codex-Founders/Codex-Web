@@ -1,0 +1,60 @@
+/* CAMPUS CARDS */
+.campuses-section { text-align: center; padding: 80px 20px; }
+.campuses-section h1 { color: #ff6a00; font-size: 3em; text-shadow: 0 0 10px #ff6a00; margin-bottom: 10px; }
+.campuses-section p { color: #fff; font-size: 1.1em; margin-bottom: 40px; }
+
+.campus-cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
+.campus-card {
+  background: rgba(26, 26, 26, 0.9);
+  border: 2px solid #ff6a00;
+  border-radius: 20px;
+  width: 260px;
+  padding: 30px 20px;
+  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+}
+.campus-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #ff6a00, 0 0 35px #ff3c00;
+  border-color: #ff3c00;
+}
+.campus-card i { font-size: 2.5em; color: #ff6a00; margin-bottom: 15px; }
+.campus-card h3 { color: #ff6a00; margin-bottom: 15px; font-size: 1.4em; }
+.campus-card p { color: #fff; font-size: 0.95em; line-height: 1.4em; margin: 5px 0; }
+
+/* CONTACT FORM */
+.contact-us { text-align: center; padding: 60px 20px; }
+.contact-us h2 { color: #ff6a00; font-size: 2.5em; margin-bottom: 20px; }
+.contact-us p { color: #fff; margin-bottom: 30px; }
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 2px solid #ff6a00;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1em;
+  resize: none;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: #aaa; }
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ff6a00;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.contact-form button:hover { background: #ff3c00; }
+.active {
+  color: #ff5005 !important;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code X - Campuses</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="campuses.css" />
+  <link rel="stylesheet" href="check.css">
+</head>
+<body>
+
+  <!-- HEADER START -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="./Images/codex withou bg head.png" alt="Code X Logo">
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
+        Select Course
+        <div class="dropdown-menu" id="courseMenu">
+          <p><a href="reg-form.html">graphic designing</a></p>
+          <p><a href="reg-form.html">web-development</a></p>
+          <p><a href="reg-form.html">data science</a></p>
+          <p><a href="reg-form.html">cyber security</a></p>
+        </div>
+      </li>
+
+
+      <li><a href="campuses.html">Campuses</a></li>
+      <li><a href="check.html" class="active" >Check Result</a></li>
+    </ul>
+
+    <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
+  </header>
+
+  
+  <section class="check-result-section">
+    <div class="glass-container">
+      <h1>Check Your Result</h1>
+      <p>Enter your roll number to view your results</p>
+
+      <form class="check-result-form" action="#" method="POST">
+        <input type="text" name="rollnumber" placeholder="ENTER YOUR ROLL NUMBER" required>
+        <button type="submit"><i class="fas -magnifying-glass"></i> Search Result</button>
+      </form>
+    </div>
+  </section>
+
+    <section id="download" class="download-id-section">
+    <div class="download-glass-container">
+        <h1>Enter the Number you provided during form submission</h1>
+        
+
+        <form class="download-id-form" action="#" method="POST">
+        <input type="text" name="number" placeholder="ENTER YOUR NUMBER" required>
+        <button type="submit"><i class="fas fa-download"></i> Download Your ID Card</button>
+        </form>
+    </div>
+</section>
+
+
+<!-- FOOTER START -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo & Description -->
+    <div class="footer-about">
+      <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
+      <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+      <p><i class="fas fa-map-marker-alt"></i> A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
+      <p><i class="fas fa-phone-alt"></i> +92 21 111 729 526</p>
+      <p><i class="fas fa-envelope"></i> info@codex.com</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li>Home</li>
+        <li>Download ID Card</li>
+        <li>Check Results</li>
+      </ul>
+    </div>
+
+    <!-- Our Courses -->
+    <div class="footer-courses">
+      <h3>Our Courses</h3>
+      <ul>
+        <li>Graphic Designing</li>
+        <li>Web Development</li>
+        <li>Data Science</li>
+        <li>Cyber Security</li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div class="footer-resources">
+      <h3>Resources</h3>
+      <ul>
+        <li>Privacy Policy</li>
+        <li>Terms of Service</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 - 2026 Code X. All rights reserved. <br> Developed by Ahmed & Mudasir!</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+
+</body>
+</html>
