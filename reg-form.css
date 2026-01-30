@@ -351,5 +351,6 @@ body {
 }
 
 .footer{
+    background: linear-gradient( #00000064, #00000061);
   margin-top: 90px; /* automatically footer ko bottom me push kare */
 }
