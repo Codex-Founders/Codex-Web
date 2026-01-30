@@ -362,3 +362,19 @@ body {
 .active {
   color: #ff5005 !important;
   }
+
+  .github-btn{
+    text-decoration: none;
+    color: #fff;
+   background: linear-gradient(135deg, #ff0000, #8b0000);
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin: 0 10px;
+    display: inline-block;
+    margin-top: 30px;
+  }
+
+  .github-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.7);
+}
