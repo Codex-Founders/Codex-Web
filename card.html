@@ -7,30 +7,131 @@
   <link rel="stylesheet" href="card.css">
 </head>
 <body>
-<<<<<<< HEAD
+  <!-- BACKGROUND EFFECT -->
+  <div class="bg-gradient"></div>
+  <div class="bg-noise"></div>
 
-<div class="card-wrapper">
+  <!-- HEADER START -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="./Images/codex withou bg head.png" alt="Code X Logo">
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+
+      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
+        Select Course
+        <div class="dropdown-menu" id="courseMenu">
+          <p><a href="reg-form.html">graphic designing</a></p>
+          <p><a href="reg-form.html">web-development</a></p>
+          <p><a href="reg-form.html">data science</a></p>
+          <p><a href="reg-form.html">cyber security</a></p>
+        </div>
+      </li>
+
+
+      <li><a href="campuses.html">Campuses</a></li>
+      <li><a href="check.html">Check Result</a></li>
+    </ul>
+
+    <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
+  </header>
+  <div class="card-container">
+
   <div class="id-card">
-    
-    <div class="card-header">
-      <img src="Images/codex withou bg head.png" class="logo" alt="Code X Logo">
-      <h2>VIRTUAL ACADEMY</h2>
+
+    <div class="top-strip"></div>
+
+    <div class="header">
+      <img src="./Images/codex withou bg head.png" alt="">
+      <h1>VIRTUAL ACADEMY</h1>
     </div>
 
-    <div class="card-body">
-      <p><span>Name:</span> @#@#$</p>
-      <p><span>Father Name:</span> @#!@##</p>
-      <p><span>Phone:</span>!@#$%</p>
-    </div>
+    <div class="details">
+      <div class="row">
+        <span>Name</span>
+        <strong>Ahmad Qureshi</strong>
+      </div>
 
-    <div class="card-footer">
-      <img src="Images/codex logo.png" class="qr" alt="QR Code">
-    </div>
+      <div class="row">
+        <span>Father</span>
+        <strong>Mr. Qureshi</strong>
+      </div>
 
+      <div class="row">
+        <span>Phone</span>
+        <strong>0300-1234567</strong>
+      </div>
+
+      <div class="row">
+        <span>Address</span>
+        <strong>Korangi</strong>
+      </div>
+    </div>
+  <div class="stack">
+    <p>Developed By: Stack Duo</p>
+  </div>
   </div>
 
-  <a href="#" class="download-btn" onclick="downloadCard()">Download Card</a>
+  
+  <button >Download Card</button>
 </div>
+
+
+<!-- FOOTER START -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo & Description -->
+    <div class="footer-about">
+      <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
+      <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+      <p><i class="fas fa-map-marker-alt"></i> A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
+      <p><i class="fas fa-phone-alt"></i> +92 21 111 729 526</p>
+      <p><i class="fas fa-envelope"></i> info@codex.com</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li>Home</li>
+        <li>Download ID Card</li>
+        <li>Check Results</li>
+      </ul>
+    </div>
+
+    <!-- Our Courses -->
+    <div class="footer-courses">
+      <h3>Our Courses</h3>
+      <ul>
+        <li>Graphic Designing</li>
+        <li>Web Development</li>
+        <li>Data Science</li>
+        <li>Cyber Security</li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div class="footer-resources">
+      <h3>Resources</h3>
+      <ul>
+        <li>Privacy Policy</li>
+        <li>Terms of Service</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 - 2026 Code X. All rights reserved. <br> Developed by Ahmed & Mudasir!</p>
+  </div>
+</footer>
+<!-- FOOTER END -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
@@ -44,8 +145,5 @@ function downloadCard() {
 }
 </script>
 
-=======
-    <p>ahmed mudassir</p>
->>>>>>> 2f27478e5dcc45bd296ff96cf3c1f392c36d10ac
 </body>
 </html>
