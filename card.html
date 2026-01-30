@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code X Academy ID Card</title>
+  <link rel="stylesheet" href="card.css">
 </head>
 <body>
-    <p>ahmed</p>
+
+<div class="card-wrapper">
+  <div class="id-card">
+    
+    <div class="card-header">
+      <img src="Images/codex withou bg head.png" class="logo" alt="Code X Logo">
+      <h2>VIRTUAL ACADEMY</h2>
+    </div>
+
+    <div class="card-body">
+      <p><span>Name:</span> @#@#$</p>
+      <p><span>Father Name:</span> @#!@#</p>
+      <p><span>Phone:</span>!@#$%</p>
+    </div>
+
+    <div class="card-footer">
+      <img src="Images/codex logo.png" class="qr" alt="QR Code">
+    </div>
+
+  </div>
+
+  <a href="#" class="download-btn" onclick="downloadCard()">Download Card</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+function downloadCard() {
+  html2canvas(document.querySelector(".id-card")).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "CodeX_ID_Card.png";
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+}
+</script>
+
 </body>
 </html>
