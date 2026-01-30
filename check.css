@@ -158,3 +158,6 @@
 .download-id-form button i {
   font-size: 1.2em;
 }
+.active {
+  color: #ff5005 !important;
+}

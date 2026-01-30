@@ -55,3 +55,6 @@
   transition: background 0.3s;
 }
 .contact-form button:hover { background: #ff3c00; }
+.active {
+  color: #ff5005 !important;
+}

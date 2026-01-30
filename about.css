@@ -359,3 +359,6 @@ body {
 .enroll-btn:hover {
   background: #ff6a4d;
 }
+.active {
+  color: #ff5005 !important;
+  }
