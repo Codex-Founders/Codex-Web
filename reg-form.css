@@ -351,6 +351,9 @@ body {
 }
 
 .footer{
+<<<<<<< HEAD
+=======
     background: linear-gradient( #00000064, #00000061);
+>>>>>>> 9b2f5c0e96f30ec5ba4952923c54a95dd6ad519c
   margin-top: 90px; /* automatically footer ko bottom me push kare */
 }
