@@ -93,39 +93,45 @@
       <p>PERSONAL INFORMATION</p>
     </div>
 
-    <div class="form-row">
-      <input class="form-select" placeholder="Full Name" id="Fname">
-      <input class="form-select" placeholder="Father Name" id="Fathername">
-    </div>
+   <div class="form-row">
+  <input class="form-select" placeholder="Full Name" id="Fname">
+  <input class="form-select" placeholder="Father Name" id="Fathername">
+</div>
 
-    <div class="form-row">
-      <input class="form-select" placeholder="Email" id="email">
-      <input class="form-select" placeholder="Phone" id="phone">
-      <input class="form-select" placeholder="Address" id="address">
-    </div>
+<div class="form-row">
+  <input class="form-select" placeholder="Email" id="email">
 
-    <!-- TERMS -->
-    <div class="term-condition">
-      <div class="term-header">
-        <img src="./Images/terms-and-conditions.png">
-        <h3>Terms & Conditions</h3>
-      </div>
+  <!-- FIXED PHONE FIELD -->
+  <input
+    type="text"class="form-select"placeholder="Phone"id="phone"maxlength="11">
 
-      <div class="term-item">
-        <input type="checkbox" required> I confirm information is correct
-      </div>
+  <input class="form-select" placeholder="Address" id="address">
+</div>
 
-      <div class="term-item">
-        <input type="checkbox" required> I agree with CODE X rules
-      </div>
-    </div>
+<!-- TERMS -->
+<div class="term-condition">
+  <div class="term-header">
+    <img src="./Images/terms-and-conditions.png">
+    <h3>Terms & Conditions</h3>
+  </div>
+
+  <div class="term-item">
+    <input type="checkbox" required> I confirm information is correct
+  </div>
+
+  <div class="term-item">
+    <input type="checkbox" required> I agree with CODE X rules
+  </div>
+</div>
+
 
     <!-- SUBMIT -->
     <div class="submit-wrap">
       <button onclick="validateForm()" type="button" class="submit-btn">
-        Submit Application
+        SUBMIT APPLICATION
       </button>
     </div>
+
 
   </div>
   </form>

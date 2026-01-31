@@ -70,7 +70,7 @@ function validateForm() {
   return false;
 }
 
-
+var students =[]
 
 // var cardName = document.getElementById("Cname").value;
 // var CfatherName = document.getElementById("Cfathername").value;
