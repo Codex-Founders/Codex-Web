@@ -73,35 +73,21 @@
   </div>
 
   <!-- DOWNLOAD BUTTON -->
-<<<<<<< HEAD
-  <div id="id" class="download-btn-wrap">
-    <button id="downloadBtn">Download ID Card</button>
-=======
   <div class="download-btn-wrap">
     <button onclick="downloadCard()">Download Card</button>
->>>>>>> 5f6ea01b7919e0b93fbd98688c0274c499172860
   </div>
+  <!-- FOOTER START -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo & Description -->
+    <div class="footer-about">
+      <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
+      <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+      <p><i class="fas fa-map-marker-alt"></i> A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
+      <p><i class="fas fa-phone-alt"></i> +92 21 111 729 526</p>
+      <p><i class="fas fa-envelope"></i> info@codex.com</p>
+    </div>
 
-  <!-- html2canvas -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-  <!-- DATA + DOWNLOAD SCRIPT -->
-  <script>
-    window.onload = function () {
-      document.querySelector("#Cname strong").innerText =
-        localStorage.getItem("name") || "";
-      document.querySelector("#CfatherName strong").innerText =
-        localStorage.getItem("fname") || "";
-      document.querySelector("#Cnumber strong").innerText =
-        localStorage.getItem("phone") || "";
-      document.querySelector("#Caddress strong").innerText =
-        localStorage.getItem("address") || "";
-    };
-
-    function downloadCard() {
-      const card = document.getElementById("card");
-
-<<<<<<< HEAD
     <!-- Quick Links -->
     <div class="footer-links">
       <h3>Quick Links</h3>
@@ -140,10 +126,25 @@
 </footer>
 <!-- FOOTER END -->
 
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- DATA + DOWNLOAD SCRIPT -->
+  <script>
+    window.onload = function () {
+      document.querySelector("#Cname strong").innerText =
+        localStorage.getItem("name") || "";
+      document.querySelector("#CfatherName strong").innerText =
+        localStorage.getItem("fname") || "";
+      document.querySelector("#Cnumber strong").innerText =
+        localStorage.getItem("phone") || "";
+      document.querySelector("#Caddress strong").innerText =
+        localStorage.getItem("address") || "";
+    };
 
-=======
+    function downloadCard() {
+      const card = document.getElementById("card");
+
       html2canvas(card, { scale: 2 }).then(canvas => {
         const link = document.createElement("a");
         link.download = "CodeX_ID_Card.png";
@@ -152,7 +153,6 @@
       });
     }
   </script>
->>>>>>> 5f6ea01b7919e0b93fbd98688c0274c499172860
 
 </body>
 </html>
