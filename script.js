@@ -36,65 +36,92 @@ let letter = '';
 })()
 
 
-var Name = document.getElementById("Fname").value;
-var FatherName = document.getElementById("Fathername").value;
-var Email = document.getElementById("email").value;
-var Phone = document.getElementById("phone").value;
-var address = document.getElementById("address").value;
+// var Name = document.getElementById("Fname").value;
+// var FatherName = document.getElementById("Fathername").value;
+// var Email = document.getElementById("email").value;
+// var Phone = document.getElementById("phone").value;
+// var address = document.getElementById("address").value;
       
 
-// ==== FORM PAGE JS ====
+// // ==== FORM PAGE JS ====
 
-// Validate form and save data before redirect
+// // Validate form and save data before redirect
+// function validateForm() {
+//   // Get input values
+//   const Name = document.getElementById("Fname").value.trim();
+//   const FatherName = document.getElementById("Fathername").value.trim();
+//   const Phone = document.getElementById("phone").value.trim();
+//   const Address = document.getElementById("address").value.trim();
+
+//   // Basic validation
+//   if (!Name || !FatherName || !Phone || !Address) {
+//     alert("Please fill all the fields.");
+//     return false; // Stop submit
+//   }
+
+//   // Phone number must be exactly 11 digits
+//   if (Phone.length !== 11) {
+//     alert("Phone number must be exactly 11 digits.");
+//     return false;
+//   }
+
+//   // Save to localStorage
+//   localStorage.setItem("Name", Name);
+//   localStorage.setItem("FatherName", FatherName);
+//   localStorage.setItem("Phone", Phone);
+//   localStorage.setItem("Address", Address);
+
+//   // Redirect to card page
+//   window.location.href = "card.html";
+//   return false; // Prevent default form submission
+// }
+
+// // ==== CARD PAGE JS ====
+
+// // Populate card with data from localStorage
+// function populateCard() {
+//   const cardName = document.getElementById("Cname");
+//   const cardFather = document.getElementById("CfatherName");
+//   const cardPhone = document.getElementById("Cnumber");
+//   const cardAddress = document.getElementById("Caddress");
+
+//   // Check if elements exist (safety)
+//   if (!cardName || !cardFather || !cardPhone || !cardAddress) return;
+
+//   // Set values from localStorage, fallback to default
+//   cardName.textContent = localStorage.getItem("Name") || "Mudassir Shaikh";
+//   cardFather.textContent = localStorage.getItem("FatherName") || "Mr. Qureshi";
+//   cardPhone.textContent = localStorage.getItem("Phone") || "0300-1234567";
+//   cardAddress.textContent = localStorage.getItem("Address") || "Korangi-gulshan-e-sikander karachi";
+// }
+
+// // Run populate on page load
+// // window.addEventListener("DOMContentLoaded", populateCard);
+
+
 function validateForm() {
-  // Get input values
-  const Name = document.getElementById("Fname").value.trim();
-  const FatherName = document.getElementById("Fathername").value.trim();
-  const Phone = document.getElementById("phone").value.trim();
-  const Address = document.getElementById("address").value.trim();
+  // get values
+  const name = document.getElementById("Fname").value;
+  const fname = document.getElementById("Fathername").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const address = document.getElementById("address").value;
 
-  // Basic validation
-  if (!Name || !FatherName || !Phone || !Address) {
-    alert("Please fill all the fields.");
-    return false; // Stop submit
-  }
-
-  // Phone number must be exactly 11 digits
-  if (Phone.length !== 11) {
-    alert("Phone number must be exactly 11 digits.");
+  // basic check
+  if (!name || !fname || !email || !phone || !address) {
+    alert("Please fill all fields");
     return false;
   }
 
-  // Save to localStorage
-  localStorage.setItem("Name", Name);
-  localStorage.setItem("FatherName", FatherName);
-  localStorage.setItem("Phone", Phone);
-  localStorage.setItem("Address", Address);
+  // save to localStorage
+  localStorage.setItem("name", name);
+  localStorage.setItem("fname", fname);
+  localStorage.setItem("email", email);
+  localStorage.setItem("phone", phone);
+  localStorage.setItem("address", address);
 
-  // Redirect to card page
+  // redirect to card page
   window.location.href = "card.html";
-  return false; // Prevent default form submission
+
+  return false; // stop form submit
 }
-
-// ==== CARD PAGE JS ====
-
-// Populate card with data from localStorage
-function populateCard() {
-  const cardName = document.getElementById("Cname");
-  const cardFather = document.getElementById("CfatherName");
-  const cardPhone = document.getElementById("Cnumber");
-  const cardAddress = document.getElementById("Caddress");
-
-  // Check if elements exist (safety)
-  if (!cardName || !cardFather || !cardPhone || !cardAddress) return;
-
-  // Set values from localStorage, fallback to default
-  cardName.textContent = localStorage.getItem("Name") || "Mudassir Shaikh";
-  cardFather.textContent = localStorage.getItem("FatherName") || "Mr. Qureshi";
-  cardPhone.textContent = localStorage.getItem("Phone") || "0300-1234567";
-  cardAddress.textContent = localStorage.getItem("Address") || "Korangi-gulshan-e-sikander karachi";
-}
-
-// Run populate on page load
-window.addEventListener("DOMContentLoaded", populateCard);
-

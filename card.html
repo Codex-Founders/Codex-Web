@@ -53,10 +53,10 @@
       <h1>VIRTUAL ACADEMY</h1>
     </div>
     <div class="details">
-      <div class="row"><span>Name</span><strong id="Cname"></strong></div>
-      <div class="row"><span>Father</span><strong id="CfatherName"></strong></div>
-      <div class="row"><span>Phone</span><strong id="Cnumber"></strong></div>
-      <div class="row"><span>Address</span><strong id="Caddress"></strong></div>
+      <div class="row" id="Cname"><span>Name</span><strong ></strong></div>
+      <div class="row"id="CfatherName" ><span>Father</span><strong ></strong></div>
+      <div class="row"id="Cnumber" ><span>Phone</span><strong ></strong></div>
+      <div class="row"id="Caddress" ><span>Address</span><strong ></strong></div>
     </div>
     <div class="stack"><p>Your Virtual Path To Tech Skills</p></div>
   </div>
@@ -138,6 +138,21 @@
 </footer>
 <!-- FOOTER END -->
 
+<!-- <script>
+window.onload = function () {
+  document.querySelector("#Cname strong").innerText =
+    localStorage.getItem("name") || "";
+
+  document.querySelector("#CfatherName strong").innerText =
+    localStorage.getItem("fname") || "";
+
+  document.querySelector("#Cnumber strong").innerText =
+    localStorage.getItem("phone") || "";
+
+  document.querySelector("#Caddress strong").innerText =
+    localStorage.getItem("address") || "";
+};
+</script> -->
 
 </body>
 </html>
