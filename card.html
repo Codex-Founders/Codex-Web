@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code X Academy ID Card</title>
   <link rel="stylesheet" href="card.css">
+
+  <!-- SAFETY CSS FIX (html2canvas alignment) -->
+  <style>
+    .header img {
+      display: block;
+      margin: 0 auto;
+      max-width: 80px;
+    }
+    .id-card,
+    .header,
+    .card-container {
+      transform: none !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,7 +30,7 @@
   <header class="navbar">
     <div class="logo">
       <a href="index.html">
-        <img src="./Images/codex withou bg head.png" alt="Code X Logo">
+        <img src="./Images/codex withou bg head.png" alt="Code X Logo" loading="eager">
       </a>
     </div>
 
@@ -39,14 +53,14 @@
     <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
 
-  <!-- CARD CONTAINER -->
+  <!-- CARD CONTAINER (ONLY THIS WILL DOWNLOAD) -->
   <div class="card-container" id="card">
 
     <!-- FRONT CARD -->
     <div class="id-card">
       <div class="top-strip"></div>
       <div class="header">
-        <img src="./Images/codex withou bg head.png" alt="">
+        <img src="./Images/codex withou bg head.png" alt="" loading="eager">
         <h1>VIRTUAL ACADEMY</h1>
       </div>
       <div class="details">
@@ -62,12 +76,12 @@
     <div class="id-card">
       <div class="top-strip"></div>
       <div class="header">
-        <img src="./Images/codex withou bg head.png" alt="">
+        <img src="./Images/codex withou bg head.png" alt="" loading="eager">
         <h1>VIRTUAL ACADEMY</h1>
       </div>
-      <img class="back" src="Images/qr_code_PNG33.png" alt="">
+      <img class="back" src="Images/qr_code_PNG33.png" alt="" loading="eager">
       <h4>For More Information Scan <br> The QR Code Above</h4>
-      <div class="stack"><p>Developed By: Stack Duo</p></div>
+      <div class="c"><p>Developed By: Stack Duo</p></div>
     </div>
 
   </div>
@@ -76,55 +90,51 @@
   <div class="download-btn-wrap">
     <button onclick="downloadCard()">Download Card</button>
   </div>
+
   <!-- FOOTER START -->
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Logo & Description -->
-    <div class="footer-about">
-      <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
-      <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
-      <p><i class="fas fa-map-marker-alt"></i> A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
-      <p><i class="fas fa-phone-alt"></i> +92 21 111 729 526</p>
-      <p><i class="fas fa-envelope"></i> info@codex.com</p>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
+        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+        <p>A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
+        <p>+92 21 111 729 526</p>
+        <p>info@codex.com</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li>Home</li>
+          <li>Download ID Card</li>
+          <li>Check Results</li>
+        </ul>
+      </div>
+
+      <div class="footer-courses">
+        <h3>Our Courses</h3>
+        <ul>
+          <li>Graphic Designing</li>
+          <li>Web Development</li>
+          <li>Data Science</li>
+          <li>Cyber Security</li>
+        </ul>
+      </div>
+
+      <div class="footer-resources">
+        <h3>Resources</h3>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Terms of Service</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Quick Links -->
-    <div class="footer-links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li>Home</li>
-        <li>Download ID Card</li>
-        <li>Check Results</li>
-      </ul>
+    <div class="footer-bottom">
+      <p>© 2026 Code X. All rights reserved.<br>Developed by Ahmed & Mudasir</p>
     </div>
-
-    <!-- Our Courses -->
-    <div class="footer-courses">
-      <h3>Our Courses</h3>
-      <ul>
-        <li>Graphic Designing</li>
-        <li>Web Development</li>
-        <li>Data Science</li>
-        <li>Cyber Security</li>
-      </ul>
-    </div>
-
-    <!-- Resources -->
-    <div class="footer-resources">
-      <h3>Resources</h3>
-      <ul>
-        <li>Privacy Policy</li>
-        <li>Terms of Service</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    <p>© 2026 - 2026 Code X. All rights reserved. <br> Developed by Ahmed & Mudasir!</p>
-  </div>
-</footer>
-<!-- FOOTER END -->
+  </footer>
+  <!-- FOOTER END -->
 
   <!-- html2canvas -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -145,7 +155,12 @@
     function downloadCard() {
       const card = document.getElementById("card");
 
-      html2canvas(card, { scale: 2 }).then(canvas => {
+      html2canvas(card, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null
+      }).then(canvas => {
         const link = document.createElement("a");
         link.download = "CodeX_ID_Card.png";
         link.href = canvas.toDataURL("image/png");

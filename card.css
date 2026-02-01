@@ -341,6 +341,7 @@ button {
     height: px;
     display: flex;
     justify-content: center;
+    
 }
 
 .stack p {
@@ -349,6 +350,20 @@ button {
     padding: 10px;
     margin-top: -5px;
 }
+.c{
+    background: linear-gradient(90deg, #ff0000, #8b0000);
+    height: px;
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;  
+}
+.c p {
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: -5px;
+}
+
 
 .card-container {
     display: flex;
