@@ -151,23 +151,8 @@
       document.querySelector("#Caddress strong").innerText =
         localStorage.getItem("address") || "";
     };
-
-    function downloadCard() {
-      const card = document.getElementById("card");
-
-      html2canvas(card, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: null
-      }).then(canvas => {
-        const link = document.createElement("a");
-        link.download = "CodeX_ID_Card.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-      });
-    }
   </script>
+
 
 </body>
 </html>
