@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="card.css">
 </head>
 <body>
+
   <!-- BACKGROUND EFFECT -->
   <div class="bg-gradient"></div>
   <div class="bg-noise"></div>
@@ -22,19 +23,15 @@
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
-
-
-      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
+      <li class="dropdown">
         Select Course
-        <div class="dropdown-menu" id="courseMenu">
-          <p><a href="reg-form.html">graphic designing</a></p>
-          <p><a href="reg-form.html">web-development</a></p>
-          <p><a href="reg-form.html">data science</a></p>
-          <p><a href="reg-form.html">cyber security</a></p>
+        <div class="dropdown-menu">
+          <p><a href="reg-form.html">Graphic Designing</a></p>
+          <p><a href="reg-form.html">Web Development</a></p>
+          <p><a href="reg-form.html">Data Science</a></p>
+          <p><a href="reg-form.html">Cyber Security</a></p>
         </div>
       </li>
-
-
       <li><a href="campuses.html">Campuses</a></li>
       <li><a href="check.html">Check Result</a></li>
     </ul>
@@ -42,64 +39,69 @@
     <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
 
+  <!-- CARD CONTAINER -->
+  <div class="card-container" id="card">
 
-<div class="card-container">
+    <!-- FRONT CARD -->
+    <div class="id-card">
+      <div class="top-strip"></div>
+      <div class="header">
+        <img src="./Images/codex withou bg head.png" alt="">
+        <h1>VIRTUAL ACADEMY</h1>
+      </div>
+      <div class="details">
+        <div class="row" id="Cname"><span>Name</span><strong></strong></div>
+        <div class="row" id="CfatherName"><span>Father</span><strong></strong></div>
+        <div class="row" id="Cnumber"><span>Phone</span><strong></strong></div>
+        <div class="row" id="Caddress"><span>Address</span><strong></strong></div>
+      </div>
+      <div class="stack"><p>Your Virtual Path To Tech Skills</p></div>
+    </div>
 
-  <!-- FRONT CARD -->
-  <div class="id-card">
-    <div class="top-strip"></div>
-    <div class="header">
-      <img src="./Images/codex withou bg head.png" alt="">
-      <h1>VIRTUAL ACADEMY</h1>
+    <!-- BACK CARD -->
+    <div class="id-card">
+      <div class="top-strip"></div>
+      <div class="header">
+        <img src="./Images/codex withou bg head.png" alt="">
+        <h1>VIRTUAL ACADEMY</h1>
+      </div>
+      <img class="back" src="Images/qr_code_PNG33.png" alt="">
+      <h4>For More Information Scan <br> The QR Code Above</h4>
+      <div class="stack"><p>Developed By: Stack Duo</p></div>
     </div>
-    <div class="details">
-      <div class="row" id="Cname"><span>Name</span><strong ></strong></div>
-      <div class="row"id="CfatherName" ><span>Father</span><strong ></strong></div>
-      <div class="row"id="Cnumber" ><span>Phone</span><strong ></strong></div>
-      <div class="row"id="Caddress" ><span>Address</span><strong ></strong></div>
-    </div>
-    <div class="stack"><p>Your Virtual Path To Tech Skills</p></div>
-  </div>
 
-  <!-- BACK CARD -->
-  <div class="id-card">
-    <div class="top-strip"></div>
-    <div class="header">
-      <img src="./Images/codex withou bg head.png" alt="">
-      <h1>VIRTUAL ACADEMY</h1>
-      <br>
-      
-    </div>
-    <img class="back" src="Images/qr_code_PNG33.png" alt="">
-    <h4>For More Information Scan <br> The  QR Code Above</h4>
-    <br>
-    <br>
-    <br>
-    <br>
-     
-    <div class="stack"><p>Developed By: Stack Duo</p></div>
   </div>
 
   <!-- DOWNLOAD BUTTON -->
+<<<<<<< HEAD
   <div id="id" class="download-btn-wrap">
     <button id="downloadBtn">Download ID Card</button>
+=======
+  <div class="download-btn-wrap">
+    <button onclick="downloadCard()">Download Card</button>
+>>>>>>> 5f6ea01b7919e0b93fbd98688c0274c499172860
   </div>
 
-</div>
+  <!-- html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
+  <!-- DATA + DOWNLOAD SCRIPT -->
+  <script>
+    window.onload = function () {
+      document.querySelector("#Cname strong").innerText =
+        localStorage.getItem("name") || "";
+      document.querySelector("#CfatherName strong").innerText =
+        localStorage.getItem("fname") || "";
+      document.querySelector("#Cnumber strong").innerText =
+        localStorage.getItem("phone") || "";
+      document.querySelector("#Caddress strong").innerText =
+        localStorage.getItem("address") || "";
+    };
 
-<!-- FOOTER START -->
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Logo & Description -->
-    <div class="footer-about">
-      <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
-      <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
-      <p><i class="fas fa-map-marker-alt"></i> A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
-      <p><i class="fas fa-phone-alt"></i> +92 21 111 729 526</p>
-      <p><i class="fas fa-envelope"></i> info@codex.com</p>
-    </div>
+    function downloadCard() {
+      const card = document.getElementById("card");
 
+<<<<<<< HEAD
     <!-- Quick Links -->
     <div class="footer-links">
       <h3>Quick Links</h3>
@@ -141,6 +143,16 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
+=======
+      html2canvas(card, { scale: 2 }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "CodeX_ID_Card.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    }
+  </script>
+>>>>>>> 5f6ea01b7919e0b93fbd98688c0274c499172860
 
 </body>
 </html>
