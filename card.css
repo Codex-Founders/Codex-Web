@@ -143,7 +143,7 @@ body {
     border-radius: 20px;
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
 .enroll-btn a {
@@ -226,12 +226,11 @@ body {
 
 main {
     flex: 1;
-    /* content space le, footer ko neeche push kare */
 }
 
 .footer {
     margin-top: auto;
-    /* automatically footer ko bottom me push kare */
+
 }
 
 /* Footer end */
@@ -254,7 +253,7 @@ main {
     position: relative;
 }
 
-/* TOP RED STRIP */
+
 .top-strip {
     height: 8px;
     background: linear-gradient(90deg, #ff0000, #8b0000);
@@ -341,7 +340,7 @@ button {
     height: px;
     display: flex;
     justify-content: center;
-    
+
 }
 
 .stack p {
@@ -350,13 +349,15 @@ button {
     padding: 10px;
     margin-top: -5px;
 }
-.c{
+
+.c {
     background: linear-gradient(90deg, #ff0000, #8b0000);
     height: px;
     display: flex;
     justify-content: center;
-    margin-top: 75px;  
+    margin-top: 75px;
 }
+
 .c p {
     color: #000000;
     font-weight: bold;
@@ -368,15 +369,10 @@ button {
 .card-container {
     display: flex;
     flex-direction: row;
-    /* horizontal line */
     align-items: flex-start;
-    /* top aligned cards */
     justify-content: center;
-    /* center cards horizontally */
     gap: 25px;
-    /* space between cards */
     flex-wrap: wrap;
-    /* small screen me wrap ho jaye */
     margin-bottom: 30px;
 }
 
@@ -385,7 +381,6 @@ button {
     width: 100%;
     display: flex;
     justify-content: center;
-    /* center button */
     margin-top: 20px;
 }
 
@@ -422,44 +417,29 @@ button {
 
 .back {
     width: 100px;
-    /* QR box width */
     height: 100px;
-    /* QR box height */
     margin: 20px auto;
-    /* center horizontally with spacing */
     background: linear-gradient(90deg, #ff6a00, #c74b25);
-    /* white background for QR */
     padding: 10px;
-    /* padding inside the box */
     border-radius: 12px;
-    /* rounded corners */
     display: flex;
     justify-content: center;
-    /* center image horizontally */
     align-items: center;
-    /* center image vertically */
     box-shadow: 0 5px 15px rgb(255, 255, 255);
-    /* subtle shadow */
 }
 
 .back img {
     width: 100%;
-    /* QR fits inside box */
     height: 100%;
     object-fit: contain;
-    /* keep aspect ratio */
 }
 
 .id-card h4 {
     text-align: center;
-    /* center text */
     font-size: 14px;
     background: linear-gradient(90deg, #ff6a00, #c74b25);
     -webkit-background-clip: text;
-    /* for Chrome/Safari */
     background-clip: text;
-    /* standard property for compatibility */
     -webkit-text-fill-color: transparent;
-    /* make text show gradient */
     margin-top: 10px;
 }

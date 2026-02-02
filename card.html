@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code X Academy ID Card</title>
   <link rel="stylesheet" href="card.css">
 
-  <!-- SAFETY CSS FIX (html2canvas alignment) -->
+
   <style>
     .header img {
       display: block;
       margin: 0 auto;
       max-width: 80px;
     }
+
     .id-card,
     .header,
     .card-container {
@@ -20,32 +22,37 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- BACKGROUND EFFECT -->
+
   <div class="bg-gradient"></div>
   <div class="bg-noise"></div>
 
-  <!-- HEADER START -->
+
   <header class="navbar">
     <div class="logo">
       <a href="index.html">
-        <img src="./Images/codex withou bg head.png" alt="Code X Logo" loading="eager">
+        <img src="./Images/codex withou bg head.png" alt="Code X Logo">
       </a>
     </div>
 
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li class="dropdown">
+
+
+      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
         Select Course
-        <div class="dropdown-menu">
-          <p><a href="reg-form.html">Graphic Designing</a></p>
-          <p><a href="reg-form.html">Web Development</a></p>
-          <p><a href="reg-form.html">Data Science</a></p>
-          <p><a href="reg-form.html">Cyber Security</a></p>
+        <div class="dropdown-menu" id="courseMenu">
+          <p><a href="reg-form.html">graphic designing</a></p>
+          <p><a href="reg-form.html">web-development</a></p>
+          <p><a href="reg-form.html">data science</a></p>
+          <p><a href="reg-form.html">cyber security</a></p>
         </div>
       </li>
+
+
       <li><a href="campuses.html">Campuses</a></li>
       <li><a href="check.html">Check Result</a></li>
     </ul>
@@ -53,7 +60,6 @@
     <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
 
-  <!-- CARD CONTAINER (ONLY THIS WILL DOWNLOAD) -->
   <div class="card-container" id="card">
 
     <!-- FRONT CARD -->
@@ -69,7 +75,9 @@
         <div class="row" id="Cnumber"><span>Phone</span><strong></strong></div>
         <div class="row" id="Caddress"><span>Address</span><strong></strong></div>
       </div>
-      <div class="stack"><p>Your Virtual Path To Tech Skills</p></div>
+      <div class="stack">
+        <p>Your Virtual Path To Tech Skills</p>
+      </div>
     </div>
 
     <!-- BACK CARD -->
@@ -81,7 +89,9 @@
       </div>
       <img class="back" src="Images/qr_code_PNG33.png" alt="" loading="eager">
       <h4>For More Information Scan <br> The QR Code Above</h4>
-      <div class="c"><p>Developed By: Stack Duo</p></div>
+      <div class="c">
+        <p>Developed By: Stack Duo</p>
+      </div>
     </div>
 
   </div>
@@ -96,7 +106,8 @@
     <div class="footer-container">
       <div class="footer-about">
         <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
-        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.
+        </p>
         <p>A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
         <p>+92 21 111 729 526</p>
         <p>info@codex.com</p>
@@ -136,23 +147,9 @@
   </footer>
   <!-- FOOTER END -->
 
-  <!-- html2canvas -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-  <!-- DATA + DOWNLOAD SCRIPT -->
-  <script>
-    window.onload = function () {
-      document.querySelector("#Cname strong").innerText =
-        localStorage.getItem("name") || "";
-      document.querySelector("#CfatherName strong").innerText =
-        localStorage.getItem("fname") || "";
-      document.querySelector("#Cnumber strong").innerText =
-        localStorage.getItem("phone") || "";
-      document.querySelector("#Caddress strong").innerText =
-        localStorage.getItem("address") || "";
-    };
-  </script>
 
 
 </body>
+
 </html>

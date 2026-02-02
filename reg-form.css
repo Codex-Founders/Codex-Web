@@ -8,25 +8,29 @@ body {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 
-  background: linear-gradient(
-    120deg,
-    #ff4d00,
-    #000000,
-    #ff5005
-  );
+  background: linear-gradient(120deg,
+      #ff4d00,
+      #000000,
+      #ff5005);
 
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite;
 }
 
-/* GRADIENT ANIMATION */
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
- /* header start */
-/* NAVBAR */
+
 .navbar {
   display: flex;
   align-items: center;
@@ -36,12 +40,11 @@ body {
   backdrop-filter: blur(8px);
 }
 
-/* LOGO */
 .logo img {
   width: 90px;
 }
 
-/* NAV LINKS */
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -59,7 +62,7 @@ body {
   color: #ff5005;
 }
 
-/* DROPDOWN */
+
 .dropdown-menu {
   position: absolute;
   top: 30px;
@@ -76,13 +79,13 @@ body {
 }
 
 .dropdown-menu p:hover {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
-/* BUTTON */
+
 .enroll-btn {
   background: #ff5005;
-  border: none;         
+  border: none;
   padding: 8px 18px;
   border-radius: 20px;
   color: white;
@@ -94,10 +97,7 @@ body {
 .enroll-btn:hover {
   background: #ff6a4d;
 }
- /* header end */
 
- 
-/* HERO SECTION */
 
 
 
@@ -105,21 +105,21 @@ body {
   font-size: 72px;
   color: #ffffff;
 
-  text-shadow:    
+  text-shadow:
     0 0 10px #ff5005,
     0 0 20px #ff5005,
     0 0 40px #ff0000,
     0 0 80px #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.hero h2{
-    margin-top: 30px;
-    margin-bottom: 30px;
+.hero h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
 .typing-text {
-  font-size: 30px;  
+  font-size: 30px;
   color: #ffffff;
   font-weight: bold;
   text-shadow:
@@ -132,12 +132,12 @@ body {
   overflow: hidden;
 }
 
-.hero button{
-    margin-top: 15px;
+.hero button {
+  margin-top: 15px;
 }
-    
-.hero{
-    
+
+.hero {
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,43 +156,44 @@ body {
     0 10px 35px rgba(255, 255, 255, 0.6);
 }
 
-.enroll-btn a{
+.enroll-btn a {
   text-decoration: none;
   color: #ffffff;
 }
 
 
-.reg-form h2{
- text-align: center;
- color: #ffffff;
- font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- font-size: 35px;
+.reg-form h2 {
+  text-align: center;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 35px;
 }
 
-.reg-form P{
- text-align: center;
- color: #ffffff;
- font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- font-size: 15px;
+.reg-form P {
+  text-align: center;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
 }
 
 .reg-form {
-  background: rgba(255, 0, 0, 0.351); /* transparent orange */
+  background: rgba(255, 0, 0, 0.351);
 
   margin-top: 150px;
   border-radius: 40px;
-  
+
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  
+
   border: 1px solid rgba(255, 0, 0, 0.718);
   box-shadow: 0 19px 90px rgb(0, 0, 0);
 }
 
-.container{
+.container {
   width: 1200px;
   margin: auto;
 }
+
 .details {
   width: 90%;
   max-width: 900px;
@@ -202,7 +203,7 @@ body {
   border-radius: 15px;
 }
 
-/* location icon + text in one line */
+
 .location-row {
   display: flex;
   align-items: center;
@@ -210,13 +211,12 @@ body {
   margin-bottom: 20px;
 }
 
-/* location icon */
+
 .loc {
   width: 20px;
   height: auto;
 }
 
-/* heading text */
 .details p {
   color: #000;
   font-size: 15px;
@@ -224,7 +224,7 @@ body {
   font-weight: 500;
 }
 
-/* form rows */
+
 .form-row {
   display: flex;
   gap: 20px;
@@ -258,9 +258,11 @@ body {
   font-size: 16px;
   text-align: top;
 }
+
 .full-width {
   flex: 1 0 100%;
 }
+
 .term-condition {
   width: 90%;
   max-width: 900px;
@@ -270,7 +272,7 @@ body {
   border-radius: 15px;
 }
 
-/* heading row */
+
 .term-header {
   display: flex;
   align-items: center;
@@ -289,7 +291,7 @@ body {
   color: #000;
 }
 
-/* each term */
+
 .term-item {
   display: flex;
   align-items: flex-start;
@@ -310,9 +312,11 @@ body {
   line-height: 1.5;
   cursor: pointer;
 }
-.term-img{
+
+.term-img {
   width: 50px;
 }
+
 .submit-wrap {
   width: 90%;
   max-width: 900px;
@@ -332,18 +336,18 @@ body {
   transition: all 0.3s ease;
 }
 
-/* hover effect */
+
 .submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(255, 122, 0, 0.35);
 }
 
-/* active click */
+
 .submit-btn:active {
   transform: scale(0.98);
 }
 
-/* disabled (optional) */
+
 .submit-btn:disabled {
   background: #ccc;
   cursor: not-allowed;
@@ -363,32 +367,34 @@ body {
   transition: all 0.3s ease;
 }
 
-/* hover effect */
+
 .D-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(255, 122, 0, 0.35);
 }
 
-/* active click */
+
 .D-btn:active {
   transform: scale(0.98);
 }
 
-/* disabled (optional) */
+
 .D-btn:disabled {
   background: #ccc;
   cursor: not-allowed;
   box-shadow: none;
 }
 
-.D-btn a{
+.D-btn a {
   text-decoration: none;
   color: #ffffff;
 }
-.footer{
-    background: linear-gradient( #00000064, #00000061);
-  margin-top: 90px; 
+
+.footer {
+  background: linear-gradient(#000000, #000000);
+  margin-top: 90px;
 }
+
 .popup {
   position: fixed;
   top: 50%;
@@ -397,7 +403,7 @@ body {
   background: #fff;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   text-align: center;
   z-index: 2000;
   transition: 0.35s ease;
