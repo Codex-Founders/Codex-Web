@@ -437,7 +437,7 @@ button {
 .id-card h4 {
     text-align: center;
     font-size: 14px;
-    background: linear-gradient(90deg, #ff6a00, #c74b25);
+ 
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
