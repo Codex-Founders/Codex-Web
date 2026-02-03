@@ -16,7 +16,7 @@ let letter = '';
 
 (function type() {
   if (count === texts.length) {
-    count = 0; // loop back
+    count = 0; 
   }
 
   currentText = texts[count];
@@ -29,14 +29,14 @@ let letter = '';
       index = 0;
       count++;
       type();
-    }, 1500); // pause before next word
+    }, 1500);
   } else {
-    setTimeout(type, 150); // typing speed
+    setTimeout(type, 150); 
   }
 })()
-// =======================
-// SHOW / HIDE DROPDOWN
-// =======================
+
+
+
 function show() {
   document.getElementById("courseMenu").style.display = "block";
 }
@@ -45,9 +45,9 @@ function hide() {
   document.getElementById("courseMenu").style.display = "none";
 }
 
-// =====================
+
 // FORM SAVE + REDIRECT
-// =====================
+
 const form = document.getElementById("myForm");
 
 if (form) {
@@ -63,9 +63,9 @@ if (form) {
   });
 }
 
-// =====================
+
 // LOAD DATA ON CARD
-// =====================
+
 if (document.getElementById("card")) {
   document.getElementById("cname").innerText = localStorage.getItem("name");
   document.getElementById("cfather").innerText = localStorage.getItem("father");
@@ -73,9 +73,9 @@ if (document.getElementById("card")) {
   document.getElementById("caddress").innerText = localStorage.getItem("address");
 }
 
-// =====================
+
 // DOWNLOAD CARD
-// =====================
+
 const downloadBtn = document.getElementById("downloadBtn");
 
 if (downloadBtn) {
