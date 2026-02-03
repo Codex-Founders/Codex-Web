@@ -129,6 +129,34 @@
       <p>© 2026 Code X. All rights reserved.<br>Developed by Ahmed & Mudasir</p>
     </div>
   </footer>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script>
+  // LOAD DATA
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#Cname strong").innerText =
+      localStorage.getItem("Cname") || "";
+
+    document.querySelector("#Cfather strong").innerText =
+      localStorage.getItem("Cfather") || "";
+
+    document.querySelector("#Cphone strong").innerText =
+      localStorage.getItem("Cphone") || "";
+
+    document.querySelector("#Caddress strong").innerText =
+      localStorage.getItem("Caddress") || "";
+  });
+
+  // DOWNLOAD CARD
+  document.getElementById("downloadBtn").addEventListener("click", function () {
+    html2canvas(document.getElementById("card"), { scale: 2 }).then(canvas => {
+      const link = document.createElement("a");
+      link.download = "CodeX-ID-Card.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
+  });
+</script>
 
 </body>
 
