@@ -35,48 +35,19 @@ let letter = '';
   }
 })()
 
+// Show data from localStorage
+document.getElementById('Cname').innerText = "Name: " + localStorage.getItem('name');
+document.getElementById('Cfather').innerText = "Father: " + localStorage.getItem('father');
+document.getElementById('Cphone').innerText = "Phone: " + localStorage.getItem('phone');
+document.getElementById('Caddress').innerText = "Address: " + localStorage.getItem('address');
 
-
-function validateForm() {
-  // get values
-  const name = document.getElementById("Fname").value;
-  const fname = document.getElementById("Fathername").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const address = document.getElementById("address").value;
-
-  // basic check
-  if (!name || !fname || !email || !phone || !address) {
-    alert("Please fill all fields");
-    return false;
-  }
-
-  // save to localStorage
-  localStorage.setItem("name", name);
-  localStorage.setItem("fname", fname);
-  localStorage.setItem("email", email);
-  localStorage.setItem("phone", phone);
-  localStorage.setItem("address", address);
-
-  // redirect to card page
-  window.location.href = "card.html";
-
-  return false; // stop form submit
-}
-
-
-window.onload = function () {
-  document.querySelector("#Cname strong").innerText =
-    localStorage.getItem("name") || "";
-
-  document.querySelector("#CfatherName strong").innerText =
-    localStorage.getItem("fname") || "";
-
-  document.querySelector("#Cnumber strong").innerText =
-    localStorage.getItem("phone") || "";
-
-  document.querySelector("#Caddress strong").innerText =
-    localStorage.getItem("address") || "";
-};
-
-
+// Download card as image
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const card = document.getElementById('card');
+    html2canvas(card).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'CodeX_ID_Card.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+});

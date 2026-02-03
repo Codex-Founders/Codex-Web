@@ -11,7 +11,6 @@
 
 <body>
 
-
   <div class="bg-gradient"></div>
   <div class="bg-noise"></div>
 
@@ -41,16 +40,14 @@
     <button class="enroll-btn">Enroll Now</button>
   </header>
 
-
   <div class="container">
 
     <section class="reg-form">
       <h2>REGISTRATION FORM</h2>
       <p>START YOUR JOURNEY TOWARDS EXCELLENCE. FILL OUT THE FORM TO APPLY FOR OUR COURSE</p>
 
-
-      <form id="myForm" onsubmit="return validateForm()" method="post">
-
+      <!-- Form Start -->
+      <form id="myForm" onsubmit="saveData(event)">
         <div class="details">
 
           <div class="location-row">
@@ -59,12 +56,12 @@
           </div>
 
           <div class="form-row">
-            <select class="form-select">
+            <select class="form-select" required>
               <option hidden>Select Country</option>
               <option>Pakistan</option>
             </select>
 
-            <select class="form-select">
+            <select class="form-select" required>
               <option hidden>Class Preference</option>
               <option>Online</option>
               <option>Onsite</option>
@@ -72,13 +69,13 @@
           </div>
 
           <div class="form-row">
-            <select class="form-select">
+            <select class="form-select" required>
               <option hidden>Gender</option>
               <option>Male</option>
               <option>Female</option>
             </select>
 
-            <select class="form-select">
+            <select class="form-select" required>
               <option hidden>City</option>
               <option>Karachi</option>
               <option>Lahore</option>
@@ -86,24 +83,20 @@
             </select>
           </div>
 
-
           <div class="location-row">
             <img class="loc" src="Images/user.png">
             <p>PERSONAL INFORMATION</p>
           </div>
 
           <div class="form-row">
-            <input class="form-select" placeholder="Full Name" id="Fname">
-            <input class="form-select" placeholder="Father Name" id="Fathername">
+            <input class="form-select" placeholder="Full Name" id="Fname" required>
+            <input class="form-select" placeholder="Father Name" id="Fathername" required>
           </div>
 
           <div class="form-row">
-            <input class="form-select" placeholder="Email" id="email">
-
-
-            <input type="text" class="form-select" placeholder="Phone" id="phone" maxlength="11">
-
-            <input class="form-select" placeholder="Address" id="address">
+            <input class="form-select" placeholder="Email" id="email" type="email" required>
+            <input type="text" class="form-select" placeholder="Phone" id="phone" maxlength="11" required>
+            <input class="form-select" placeholder="Address" id="address" required>
           </div>
 
           <div class="term-condition">
@@ -121,15 +114,35 @@
             </div>
           </div>
 
-
-
           <div class="submit-wrap">
-            <button onclick="validateForm()" type="button" class="submit-btn">
-              SUBMIT APPLICATION
-            </button>
+            <button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
           </div>
+
         </div>
       </form>
+      <!-- Form End -->
+
+      <!-- Script to save data and open card.html -->
+      <script>
+        function saveData(e){
+          e.preventDefault(); // page reload roke
+
+          // Form fields
+          const name = document.getElementById('Fname').value;
+          const father = document.getElementById('Fathername').value;
+          const phone = document.getElementById('phone').value;
+          const address = document.getElementById('address').value;
+
+          // Store in localStorage
+          localStorage.setItem('Cname', name);
+          localStorage.setItem('Cfather', father);
+          localStorage.setItem('Cphone', phone);
+          localStorage.setItem('Caddress', address);
+
+          // Open card page (relative path)
+          window.location.href = 'card.html';
+        }
+      </script>
 
     </section>
   </div>
@@ -155,7 +168,6 @@
         </ul>
       </div>
 
-
       <div class="footer-courses">
         <h3>Our Courses</h3>
         <ul>
@@ -175,15 +187,11 @@
       </div>
     </div>
 
-
     <div class="footer-bottom">
       <p>© 2026 - 2026 Code X. All rights reserved. <br> Developed by Stack duo</p>
     </div>
   </footer>
-
-
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>
