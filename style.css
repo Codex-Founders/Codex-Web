@@ -319,11 +319,7 @@ main {
 }
 
 
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
 
-/* Tablets & small laptops */
 @media (max-width: 1024px) {
 
   .hero {
@@ -346,10 +342,8 @@ main {
 }
 
 
-/* Mobile devices */
 @media (max-width: 768px) {
 
-  /* NAVBAR */
   .navbar {
     flex-direction: column;
     gap: 10px;
@@ -365,7 +359,7 @@ main {
     width: 75px;
   }
 
-  /* HERO */
+
   .hero {
     position: relative;
     top: auto;
@@ -388,7 +382,7 @@ main {
     margin: 10px 5px;
   }
 
-  /* FOOTER */
+ 
   .footer-container {
     flex-direction: column;
     text-align: center;
@@ -396,7 +390,7 @@ main {
 }
 
 
-/* Very small phones */
+
 @media (max-width: 480px) {
 
   .hero h1 {

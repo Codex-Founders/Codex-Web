@@ -423,16 +423,12 @@ body {
   z-index: 1500;
 }
 
-/* =========================
-   RESPONSIVE FIX – FULL PAGE
-   ========================= */
 
-/* Fix overlap if navbar fixed later */
 body {
   overflow-x: hidden;
 }
 
-/* ---------- TABLETS ---------- */
+
 @media (max-width: 1024px) {
 
   .container {
@@ -454,7 +450,7 @@ body {
   }
 }
 
-/* ---------- MOBILES ---------- */
+
 @media (max-width: 768px) {
 
   /* NAVBAR */
@@ -476,7 +472,6 @@ body {
     margin-right: 0;
   }
 
-  /* HERO FIX (absolute → relative feel) */
   .hero {
     position: relative;
     top: auto;
@@ -499,7 +494,6 @@ body {
     border-right: none;
   }
 
-  /* FORM */
   .reg-form {
     margin-top: 60px;
     border-radius: 25px;
@@ -523,7 +517,7 @@ body {
   }
 }
 
-/* ---------- SMALL PHONES ---------- */
+
 @media (max-width: 480px) {
 
   .hero h1 {

@@ -120,21 +120,19 @@
 
         </div>
       </form>
-      <!-- Form End -->
+    
 
     >
       <script>
         function saveData(e){
           e.preventDefault();
 
-          // Form fields
           const name = document.getElementById('Fname').value;
           const father = document.getElementById('Fathername').value;
           const phone = document.getElementById('phone').value;
           const address = document.getElementById('address').value;
 
-          // Store in localStorage
-          localStorage.setItem('Cname', name);
+          
           localStorage.setItem('Cfather', father);
           localStorage.setItem('Cphone', phone);
           localStorage.setItem('Caddress', address);

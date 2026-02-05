@@ -23,7 +23,6 @@ body {
 
 }
 
-/* GRADIENT ANIMATION */
 @keyframes gradientMove {
     0% {
         background-position: 0% 50%;
@@ -38,8 +37,7 @@ body {
     }
 }
 
-/* header start */
-/* NAVBAR */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -68,7 +66,6 @@ body {
 
 .nav-links li a {
     color: white;
-    /* default color for all links */
     font-size: 18px;
     text-decoration: none;
     cursor: pointer;
@@ -76,18 +73,15 @@ body {
     transition: color 0.3s;
 }
 
-/* Hover effect */
+
 .nav-links li a:hover {
     color: #ff5005;
-    /* hover color */
+ 
 }
 
-/* Active/current link */
 .nav-links li a.active {
     color: #ff5005;
-    /* highlight color for active link */
     font-weight: bold;
-    /* optional: makes it stand out */
 }
 
 
@@ -100,7 +94,7 @@ body {
     width: 90px;
 }
 
-/* NAV LINKS */
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -115,7 +109,6 @@ body {
 }
 
 
-/* DROPDOWN */
 .dropdown-menu {
     position: absolute;
     top: 30px;
@@ -135,7 +128,6 @@ body {
     background: rgba(0, 0, 0, 0.2);
 }
 
-/* BUTTON */
 .enroll-btn {
     background: #ff5005;
     border: none;
@@ -155,8 +147,7 @@ body {
     background: #ff6a4d;
 }
 
-/* header end */
-/* Footer Start */
+
 .footer {
     background-color: #1c1c1c;
     color: #fff;
@@ -283,7 +274,7 @@ main {
 }
 
 
-/* DETAILS */
+
 .details {
     padding: 25px 20px;
 }
@@ -304,7 +295,6 @@ main {
     letter-spacing: .5px;
 }
 
-/* QR */
 .qr-box {
     position: absolute;
     bottom: 25px;
@@ -320,7 +310,6 @@ main {
     border-radius: 8px;
 }
 
-/* BUTTON */
 button {
     margin-top: 30px;
     padding: 10px 20px;
@@ -379,7 +368,7 @@ button {
     margin-bottom: 30px;
 }
 
-/* BUTTON WRAPPER */
+
 .download-btn-wrap {
     width: 100%;
     display: flex;
@@ -387,7 +376,7 @@ button {
     margin-top: 20px;
 }
 
-/* BUTTON STYLE */
+
 .download-btn-wrap button {
     padding: 12px 40px;
     background: linear-gradient(135deg, #ff0000, #8b0000);
@@ -406,7 +395,6 @@ button {
     box-shadow: 0 12px 30px rgba(255, 0, 0, 0.7);
 }
 
-/* ID CARD FIXED SIZE */
 .id-card {
     width: 270px;
    height: auto;
@@ -451,16 +439,12 @@ button {
     display: hidden;
 }
 
-/* =========================
-   RESPONSIVE FIXES
-   ========================= */
 
-/* Fix fixed navbar overlap */
 body {
   padding-top: 90px;
 }
 
-/* ---------- TABLETS ---------- */
+
 @media (max-width: 1024px) {
 
   .navbar {
@@ -480,10 +464,10 @@ body {
   }
 }
 
-/* ---------- MOBILES ---------- */
+
 @media (max-width: 768px) {
 
-  /* NAVBAR */
+
   .navbar {
     padding: 12px 18px;
   }
@@ -493,7 +477,7 @@ body {
   }
 
   .nav-links {
-    display: none; /* clean mobile look */
+    display: none; 
   }
 
   .enroll-btn {
@@ -502,7 +486,7 @@ body {
     margin-right: 0;
   }
 
-  /* CARD AREA */
+ 
   .card-container {
     margin: 80px 10px 30px;
     gap: 20px;
@@ -513,19 +497,17 @@ body {
     max-width: 300px;
   }
 
-  /* QR */
+
   .qr-box img {
     width: 80px;
   }
 
-  /* BUTTON */
   .download-btn-wrap button {
     width: 90%;
     padding: 12px;
     font-size: 15px;
   }
 
-  /* FOOTER */
   .footer-container {
     flex-direction: column;
     text-align: center;
@@ -539,7 +521,7 @@ body {
   }
 }
 
-/* ---------- SMALL PHONES ---------- */
+
 @media (max-width: 480px) {
 
   .header h1 {

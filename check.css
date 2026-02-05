@@ -162,11 +162,7 @@
   color: #ff5005 !important;
 }
 
-/* =========================
-   RESPONSIVE – CHECK RESULT & DOWNLOAD ID
-   ========================= */
 
-/* Tablets */
 @media (max-width: 1024px) {
 
   .glass-container,
@@ -184,7 +180,7 @@
   }
 }
 
-/* Mobiles */
+
 @media (max-width: 768px) {
 
   .check-result-section,
@@ -222,11 +218,10 @@
 
   .check-result-form button:hover,
   .download-id-form button:hover {
-    transform: none; /* mobile pe zoom avoid */
+    transform: none; 
   }
 }
 
-/* Small Phones */
 @media (max-width: 480px) {
 
   .glass-container,

@@ -340,11 +340,7 @@
 
 
 
-  /* =========================
-   RESPONSIVE DESIGN
-   ========================= */
 
-/* Tablets */
 @media (max-width: 1024px) {
   .hero-about h1 {
     font-size: 48px;
@@ -362,16 +358,14 @@
   }
 }
 
-/* Mobiles */
 @media (max-width: 768px) {
 
-  /* NAVBAR */
   .navbar {
     padding: 12px 20px;
   }
 
   .nav-links {
-    display: none; /* clean mobile look */
+    display: none;
   }
 
   .enroll-btn {
@@ -379,7 +373,7 @@
     padding: 6px 14px;
   }
 
-  /* HERO */
+
   .hero-about {
     height: auto;
     padding: 120px 20px 60px;
@@ -391,14 +385,13 @@
     letter-spacing: 2px;
   }
 
-  /* VISION / WHY */
+
   .vision,
   .why {
     padding: 30px 20px;
     margin-top: -50px;
   }
 
-  /* COURSES */
   .courses {
     grid-template-columns: 1fr;
     padding: 40px 20px;
@@ -408,7 +401,7 @@
     padding: 30px;
   }
 
-  /* WHY GRID */
+
   .why-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -437,7 +430,7 @@
   }
 }
 
-/* Small phones */
+
 @media (max-width: 480px) {
 
   .hero-about h1 {
