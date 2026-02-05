@@ -317,3 +317,106 @@ main {
 .active {
   color: #ff5005 !important;
 }
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+
+  .hero {
+    width: 90%;
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .typing-text {
+    font-size: 24px;
+  }
+
+  .navbar {
+    padding: 12px 20px;
+  }
+}
+
+
+/* Mobile devices */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .logo img {
+    width: 75px;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 140px auto 0;
+    width: 95%;
+    border-radius: 25px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .typing-text {
+    font-size: 20px;
+  }
+
+  .hero-btn {
+    margin: 10px 5px;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+/* Very small phones */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .typing-text {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    font-size: 16px;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+
+  .enroll-btn {
+    padding: 5px 12px;
+    font-size: 14px;
+  }
+}
