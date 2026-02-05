@@ -422,3 +422,129 @@ body {
   pointer-events: none;
   z-index: 1500;
 }
+
+/* =========================
+   RESPONSIVE FIX – FULL PAGE
+   ========================= */
+
+/* Fix overlap if navbar fixed later */
+body {
+  overflow-x: hidden;
+}
+
+/* ---------- TABLETS ---------- */
+@media (max-width: 1024px) {
+
+  .container {
+    width: 95%;
+  }
+
+  .hero {
+    width: 520px;
+    height: auto;
+    padding: 25px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+  }
+
+  .typing-text {
+    font-size: 26px;
+  }
+}
+
+/* ---------- MOBILES ---------- */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 12px 18px;
+  }
+
+  .logo img {
+    width: 70px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .enroll-btn {
+    padding: 6px 14px;
+    font-size: 14px;
+    margin-right: 0;
+  }
+
+  /* HERO FIX (absolute → relative feel) */
+  .hero {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 90%;
+    margin: 120px auto 40px;
+    padding: 30px 20px;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .typing-text {
+    font-size: 22px;
+    white-space: normal;
+    border-right: none;
+  }
+
+  /* FORM */
+  .reg-form {
+    margin-top: 60px;
+    border-radius: 25px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-select,
+  .form-long {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .details,
+  .term-condition,
+  .submit-wrap {
+    width: 95%;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .typing-text {
+    font-size: 18px;
+  }
+
+  .reg-form h2 {
+    font-size: 28px;
+  }
+
+  .reg-form p {
+    font-size: 14px;
+  }
+
+  .submit-btn,
+  .D-btn {
+    font-size: 16px;
+    height: 50px;
+  }
+}
