@@ -2,6 +2,11 @@
   text-align: center;
   padding: 80px 20px;
 }
+  body {
+  padding-top: 90px;
+}
+
+
 
 .campuses-section h1 {
   color: #ff6a00;
@@ -114,4 +119,26 @@
 
 .active {
   color: #ff5005 !important;
+}
+
+
+/* NAVBAR RESPONSIVE FIX */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 12px 18px;
+  }
+
+  .logo img {
+    width: 75px;
+  }
+
+  .nav-links {
+    display: none; /* mobile pe hide */
+  }
+
+  .enroll-btn {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
 }
