@@ -450,3 +450,116 @@ button {
 .adres{
     display: hidden;
 }
+
+/* =========================
+   RESPONSIVE FIXES
+   ========================= */
+
+/* Fix fixed navbar overlap */
+body {
+  padding-top: 90px;
+}
+
+/* ---------- TABLETS ---------- */
+@media (max-width: 1024px) {
+
+  .navbar {
+    padding: 14px 25px;
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+
+  .card-container {
+    gap: 20px;
+  }
+}
+
+/* ---------- MOBILES ---------- */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 12px 18px;
+  }
+
+  .logo img {
+    width: 70px;
+  }
+
+  .nav-links {
+    display: none; /* clean mobile look */
+  }
+
+  .enroll-btn {
+    font-size: 14px;
+    padding: 6px 14px;
+    margin-right: 0;
+  }
+
+  /* CARD AREA */
+  .card-container {
+    margin: 80px 10px 30px;
+    gap: 20px;
+  }
+
+  .id-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* QR */
+  .qr-box img {
+    width: 80px;
+  }
+
+  /* BUTTON */
+  .download-btn-wrap button {
+    width: 90%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-courses,
+  .footer-resources {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  .header h1 {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .row span {
+    font-size: 12px;
+  }
+
+  .row strong {
+    font-size: 13px;
+  }
+
+  .qr-box img {
+    width: 70px;
+  }
+
+  .download-btn-wrap button {
+    font-size: 14px;
+  }
+}
