@@ -161,3 +161,85 @@
 .active {
   color: #ff5005 !important;
 }
+
+/* =========================
+   RESPONSIVE – CHECK RESULT & DOWNLOAD ID
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+  .glass-container,
+  .download-glass-container {
+    padding: 45px 30px;
+    margin-top: 100px;
+  }
+
+  .glass-container h1 {
+    font-size: 2.2em;
+  }
+
+  .download-glass-container h1 {
+    font-size: 1.9em;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+
+  .check-result-section,
+  .download-id-section {
+    padding: 60px 15px;
+  }
+
+  .glass-container,
+  .download-glass-container {
+    padding: 35px 25px;
+    margin-top: 90px;
+  }
+
+  .glass-container h1 {
+    font-size: 2em;
+  }
+
+  .glass-container p,
+  .download-glass-container p {
+    font-size: 1em;
+  }
+
+  .check-result-form input,
+  .download-id-form input {
+    padding: 18px 20px;
+    font-size: 1em;
+  }
+
+  .check-result-form button,
+  .download-id-form button {
+    padding: 16px;
+    font-size: 1em;
+    transform: none;
+  }
+
+  .check-result-form button:hover,
+  .download-id-form button:hover {
+    transform: none; /* mobile pe zoom avoid */
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+  .glass-container,
+  .download-glass-container {
+    padding: 30px 20px;
+    margin-top: 80px;
+  }
+
+  .glass-container h1 {
+    font-size: 1.7em;
+  }
+
+  .download-glass-container h1 {
+    font-size: 1.6em;
+  }
+}
