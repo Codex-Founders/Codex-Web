@@ -243,7 +243,7 @@ main {
 /* CARD */
 .id-card {
     width: 270px;
-    height: 415px;
+    height: auto;
     background: #0c0c0c;
     border-radius: 18px;
     color: #fff;
@@ -266,11 +266,14 @@ main {
 }
 
 .header img {
-    width: 75px;
-    background-color: #ff6a00;
-    padding: 6px;
-    border-radius: 20%;
+  display: block;
+  margin: 0 auto;
+  width: 75px;
+  height: auto;
+  background-color: #ff0000;
+  border-radius: 10px;
 }
+
 
 .header h1 {
     margin-top: 10px;
@@ -406,7 +409,7 @@ button {
 /* ID CARD FIXED SIZE */
 .id-card {
     width: 270px;
-    height: 415px;
+   height: auto;
     background: #0c0c0c;
     border-radius: 18px;
     color: #fff;
@@ -437,9 +440,13 @@ button {
 .id-card h4 {
     text-align: center;
     font-size: 14px;
- 
+    display: block;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-top: 10px;
+}
+
+.adres{
+    display: hidden;
 }
