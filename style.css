@@ -37,137 +37,137 @@ body {
     background-position: 0% 50%;
   }
 }
-/* =========================
-   NAVBAR + HERO + FOOTER FIX
-========================= */
 
-/* =========================
-   NAVBAR
-========================= */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 40px;
-  background: rgba(0,0,0,0.3);
+  padding: 15px 40px;
+
+  background: rgba(0, 0, 0, 0.218);
   backdrop-filter: blur(8px);
-  flex-wrap: wrap;
+  z-index: 1000;
+
 }
 
-/* Logo left */
-.logo {
-  flex: 1;
-}
-.logo img {
-  width: 90px; /* desktop logo size */
-}
 
-/* Right side: enroll + hamburger */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Enroll button */
-.enroll-btn {
-  background: #ff5005;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.enroll-btn a {
+.navbar a {
   text-decoration: none;
   color: white;
-  font-size: 14px;
-}
-
-.enroll-btn:hover {
-  background: #ff6a4d;
-}
-
-/* Hamburger */
-.hamburger {
-  display: none; /* desktop hide */
-  flex-direction: column;
-  gap: 5px;
+  font-size: 18px;
   cursor: pointer;
-}
-
-.hamburger span {
-  height: 3px;
-  width: 25px;
-  background: white;
-  border-radius: 3px;
-  transition: 0.3s;
-}
-
-/* Hamburger animation */
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-/* Nav links */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 25px;
+  position: relative;
 }
 
 .nav-links li a {
   color: white;
   font-size: 18px;
   text-decoration: none;
+  cursor: pointer;
   position: relative;
   transition: color 0.3s;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
+
+.nav-links li a:hover {
   color: #ff5005;
 }
 
-/* =========================
-   HERO SECTION
-========================= */
-.hero {
-  max-width: 600px;
-  margin: 120px auto 0; /* below navbar */
-  padding: 30px 20px;
-  text-align: center;
-  border-radius: 50px;
 
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(255,255,255,0.25);
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,0.15),
-    0 10px 35px rgba(255,255,255,0.4);
+.nav-links li a.active {
+  color: #ff5005;
+  font-weight: bold;
 }
 
-/* Hero title */
+
+
+
+
+
+
+.logo img {
+  width: 90px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links li {
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: #ff5005;
+  border-radius: 8px;
+  display: none;
+  min-width: 180px;
+}
+
+.dropdown-menu p {
+  padding: 10px;
+  color: white;
+}
+
+.dropdown-menu p:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+.enroll-btn {
+  background: #ff5005;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.enroll-btn a {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.enroll-btn:hover {
+  background: #ff6a4d;
+}
+
+
+
+
 .hero h1 {
   font-size: 72px;
   color: #ffffff;
+
   text-shadow:
     0 0 10px #ff5005,
     0 0 20px #ff5005,
     0 0 40px #ff0000,
     0 0 80px #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-/* Typing text original Code X style */
+.hero h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .typing-text {
   font-size: 30px;
   color: #ffffff;
@@ -182,7 +182,41 @@ body {
   overflow: hidden;
 }
 
-/* Hero buttons original style */
+.hero button {
+  margin-top: 15px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hero {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 600px;
+  height: 200px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.292);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 10px 35px rgba(255, 255, 255, 0.6);
+}
+
+.hero-btn a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+
 .hero-btn {
   background: #ff5005;
   border: none;
@@ -191,120 +225,42 @@ body {
   color: white;
   font-weight: bold;
   cursor: pointer;
-  margin: 10px 5px;
-  transition: all 0.3s ease;
-}
-
-.hero-btn a {
-  text-decoration: none;
-  color: #fff;
+  margin-right: 16px;
 }
 
 .hero-btn:hover {
   background: #ff6a4d;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255,122,0,0.35);
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.35);
 }
 
-/* =========================
-   FOOTER
-========================= */
+a {
+  font-size: 16px;
+  text-decoration: none;
+}
+
 .footer {
   background-color: #1c1c1c;
   color: #fff;
-  padding: 50px 20px;
-  margin-top: 100px;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.footer-about .footer-logo {
-  width: 150px; /* reduced footer logo */
-  margin-bottom: 15px;
-}
-
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero {
-    width: 95%;
-    margin-top: 140px;
-    border-radius: 25px;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .typing-text {
-    font-size: 20px;
-  }
-
-  .hero-btn {
-    margin: 10px 5px;
-  }
-
-  .logo img {
-    width: 65px;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 10px;
-    background: rgba(0,0,0,0.3);
-    padding: 10px 0;
-    border-radius: 10px;
-  }
-
-  .nav-links.active { display: flex; }
-}
-/* =========================
-   PROFESSIONAL FOOTER + BUTTONS MOBILE FIX
-========================= */
-
-/* FOOTER MAIN */
-.footer {
-  background-color: #1c1c1c;
-  color: #fff;
-  padding: 60px 20px 30px 20px;
+  padding: 60px 20px 20px 20px;
   font-family: 'Arial', sans-serif;
-  border-top: 2px solid #ff5005;
-  margin-top: 100px;
 }
 
-/* FOOTER CONTAINER */
 .footer-container {
-  max-width: 1200px;
-  margin: auto;
   display: flex;
-  gap: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
 }
 
-/* FOOTER ABOUT / LOGO */
 .footer-about {
   flex: 1 1 300px;
 }
 
 .footer-about .footer-logo {
-  width: 120px; /* slightly smaller & professional */
+  width: 150px;
   margin-bottom: 15px;
 }
 
@@ -314,7 +270,6 @@ body {
   margin: 5px 0;
 }
 
-/* LINKS SECTIONS */
 .footer-links,
 .footer-courses,
 .footer-resources {
@@ -327,8 +282,6 @@ body {
   color: #ff6a00;
   margin-bottom: 15px;
   font-size: 1.1em;
-  border-bottom: 1px solid rgba(255,106,0,0.5);
-  padding-bottom: 5px;
 }
 
 .footer-links ul,
@@ -345,85 +298,22 @@ body {
   font-size: 0.95em;
 }
 
-.footer-links ul li a,
-.footer-courses ul li a,
-.footer-resources ul li a {
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-links ul li a:hover,
-.footer-courses ul li a:hover,
-.footer-resources ul li a:hover {
-  color: #ff5005;
-}
-
-/* FOOTER BOTTOM */
 .footer-bottom {
   text-align: center;
   padding: 15px 0;
   border-top: 1px solid #333;
   font-size: 0.9em;
   margin-top: 30px;
-  color: #ccc;
 }
 
-/* =========================
-   HERO BUTTONS FIX
-========================= */
-.hero-btn {
-  background: #ff5005;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 10px 5px;
-  transition: all 0.3s ease;
+main {
+  flex: 1;
 }
 
-.hero-btn a {
-  color: white;
-  text-decoration: none;
+.footer {
+  margin-top: auto;
 }
 
-.hero-btn:hover {
-  background: #ff6a4d;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255,122,0,0.35);
-}
-
-/* MOBILE BUTTONS (Download / Registration) */
-@media (max-width: 768px) {
-  .hero-btn {
-    padding: 6px 14px; /* smaller */
-    font-size: 14px;
-  }
-}
-
-/* RESPONSIVE FOOTER */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-  }
-
-  .footer-about .footer-logo {
-    width: 100px; /* smaller on mobile */
-  }
-}
-
-/* VERY SMALL PHONES */
-@media (max-width: 480px) {
-  .hero-btn {
-    padding: 5px 12px;
-    font-size: 13px;
-  }
-
-  .footer-about .footer-logo {
-    width: 90px;
-  }
-}
+.active {
+  color: #ff5005 !important;
+}                               
