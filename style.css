@@ -317,3 +317,136 @@ main {
 .active {
   color: #ff5005 !important;
 }
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  /* LOGO */
+  .logo img {
+    width: 60px;
+  }
+
+  /* ENROLL BUTTON – force right side */
+  .enroll-btn {
+    display: block;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 14px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .enroll-btn a {
+    font-size: 12px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    width: 65px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+
+  .enroll-btn {
+    display: none;
+  }
+
+  /* DROPDOWN */
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    border-radius: 0;
+    background: #ff5005;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 92%;
+    height: auto;
+    padding: 25px 15px;
+    margin: 120px auto 40px;
+    border-radius: 25px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .typing-text {
+    font-size: 20px;
+  }
+
+  .hero-btn {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-about .footer-logo {
+    width: 110px;
+    margin: auto;
+  }
+
+  .footer-links,
+  .footer-courses,
+  .footer-resources {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-btn {
+           /* upar se neechay */
+    margin: 20px auto;       /* spacing between buttons */
+    max-width: 120px;        /* thora aur chhota */
+    height: 32px;            /* height kam */
+    font-size: 12px;         /* text chhota */
+    padding: 4px 10px;       /* compact feel */
+  }
+}
+
+
