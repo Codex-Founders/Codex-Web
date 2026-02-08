@@ -54,7 +54,7 @@ if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    localStorage.setItem("name", document.getElementById("Fname").value);
+    localStorage.setItem("name", document.getElementById("name").value);
     localStorage.setItem("father", document.getElementById("Fathername").value);
     localStorage.setItem("phone", document.getElementById("phone").value);
     localStorage.setItem("address", document.getElementById("address").value);

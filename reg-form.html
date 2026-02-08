@@ -89,7 +89,7 @@
           </div>
 
           <div class="form-row">
-            <input class="form-select" placeholder="Full Name" id="Fname" required>
+            <input class="form-select" placeholder="Full Name" id="name" required>
             <input class="form-select" placeholder="Father Name" id="Fathername" required>
           </div>
 
@@ -121,18 +121,16 @@
         </div>
       </form>
     
-
-    >
       <script>
         function saveData(e){
           e.preventDefault();
 
-          const name = document.getElementById('Fname').value;
+          const name = document.getElementById('name').value;
           const father = document.getElementById('Fathername').value;
           const phone = document.getElementById('phone').value;
           const address = document.getElementById('address').value;
 
-          
+          localStorage.setItem('Cname', name);  
           localStorage.setItem('Cfather', father);
           localStorage.setItem('Cphone', phone);
           localStorage.setItem('Caddress', address);
