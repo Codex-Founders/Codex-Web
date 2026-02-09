@@ -164,8 +164,8 @@ body {
 }
 
 .hero h2 {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  /* margin-top: 30px;
+  margin-bottom: 50px; */
 }
 
 .typing-text {
@@ -179,11 +179,11 @@ body {
   border-right: 2px solid #ff5005;
   padding-right: 2px;
   white-space: nowrap;
-  overflow: hidden;
+  
 }
 
 .hero button {
-  margin-top: 15px;
+  margin-top: 30px !important;
 }
 
 html {
@@ -192,6 +192,7 @@ html {
 
 .hero {
 
+  gap: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -215,7 +216,9 @@ html {
   color: #ffffff;
 }
 
-
+.butn{
+  margin-top: 20px;
+}
 
 .hero-btn {
   background: #ff5005;
@@ -395,17 +398,24 @@ main {
 
   /* HERO */
   .hero {
+    display: flex;
+    flex-direction: column;
     position: relative;
     top: auto;
     left: auto;
     transform: none;
-    width: 92%;
+    width: 80%;
     height: auto;
-    padding: 25px 15px;
+    padding: 15px 5px;
     margin: 120px auto 40px;
     border-radius: 25px;
+    gap: 10px;
   }
-
+  .butn a {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+  }
   .hero h1 {
     font-size: 42px;
   }
@@ -416,7 +426,8 @@ main {
 
   .hero-btn {
     margin: 10px 0;
-    width: 100%;
+    width: 100% !important;
+    padding: 100px;
   }
 
   /* FOOTER */
