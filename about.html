@@ -9,31 +9,39 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
 
-  <header class="navbar">
+  <!-- ── Animated Particles (same as index.html) ── -->
+  <div class="particles" id="particles"></div>
+
+  <header class="navbar" id="navbar">
     <div class="logo">
       <a href="index.html">
         <img src="./Images/codex withou bg head.png" alt="Code X Logo">
       </a>
     </div>
 
-    <ul class="nav-links">
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html" class="active">About</a></li>
-
-      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
-        Select Course
+      <li class="dropdown" id="dropdown">
+        <span>Select Course <i class="fas fa-chevron-down" style="margin-left:5px;font-size:0.8em;"></i></span>
         <div class="dropdown-menu" id="courseMenu">
-          <p><a href="reg-form.html">graphic designing</a></p>
-          <p><a href="reg-form.html">web-development</a></p>
-          <p><a href="reg-form.html">data science</a></p>
-          <p><a href="reg-form.html">cyber security</a></p>
+          <p><a href="reg-form.html">Graphic Designing</a></p>
+          <p><a href="reg-form.html">Web Development</a></p>
+          <p><a href="reg-form.html">Data Science</a></p>
+          <p><a href="reg-form.html">Cyber Security</a></p>
         </div>
       </li>
-
       <li><a href="campuses.html">Campuses</a></li>
       <li><a href="check.html">Check Result</a></li>
     </ul>
@@ -124,11 +132,10 @@
     <div class="footer-container">
       <div class="footer-about">
         <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
-        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.
-        </p>
-        <p>A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
-        <p>+92 316 3041828</p>
-        <p>info@codex.com</p>
+        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+        <p><i class="fas fa-map-marker-alt"></i> A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
+        <p><i class="fas fa-phone-alt"></i> +92 316 3041828</p>
+        <p><i class="fas fa-envelope"></i> info@codex.com</p>
       </div>
 
       <div class="footer-links">
@@ -161,11 +168,68 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 . ---- Code X. All rights reserved.<br>Developed by Stack Duo</p>
+      <p>© 2026 Code X. All rights reserved.<br>Developed by <a href="#">Stack Duo</a></p>
     </div>
   </footer>
 
   <script src="script.js"></script>
-</body>
 
+  <script>
+    /* ── Particles ── */
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left              = Math.random() * 100 + '%';
+        p.style.animationDelay    = Math.random() * 20 + 's';
+        p.style.animationDuration = (15 + Math.random() * 10) + 's';
+        container.appendChild(p);
+      }
+    }
+
+    /* ── Navbar scroll effect ── */
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* ── Mobile hamburger toggle ── */
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks   = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+
+    /* ── Course dropdown ── */
+    const dropdown     = document.getElementById('dropdown');
+    const dropdownMenu = document.getElementById('courseMenu');
+
+    dropdown.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) dropdownMenu.classList.add('show');
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) dropdownMenu.classList.remove('show');
+    });
+    dropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('show');
+      }
+    });
+
+    /* ── Close mobile menu on link click ── */
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('show');
+      });
+    });
+
+    createParticles();
+  </script>
+
+</body>
 </html>

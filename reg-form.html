@@ -4,40 +4,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code X</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Code X - Registration</title>
+  <!-- Only use the updated reg-form.css -->
   <link rel="stylesheet" href="reg-form.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
+  <!-- Animated Particles -->
+  <div class="particles" id="particles"></div>
 
-  <header class="navbar">
+  <!-- Fixed Navbar -->
+  <header class="navbar" id="navbar">
     <div class="logo">
-      <img src="./Images/codex withou bg head.png" alt="Code X Logo">
+      <a href="index.html">
+        <img src="./Images/codex withou bg head.png" alt="Code X Logo">
+      </a>
     </div>
 
-    <ul class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
-        Select Course
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown" id="dropdown">
+        <span>Select Course <i class="fas fa-chevron-down" style="margin-left:5px;font-size:0.8em;"></i></span>
         <div class="dropdown-menu" id="courseMenu">
-          <p><a href="reg-form.html">graphic designing</a></p>
-          <p><a href="reg-form.html">web-development</a></p>
-          <p><a href="reg-form.html">data science</a></p>
-          <p><a href="reg-form.html">cyber security</a></p>
+          <p><a href="reg-form.html">Graphic Designing</a></p>
+          <p><a href="reg-form.html">Web Development</a></p>
+          <p><a href="reg-form.html">Data Science</a></p>
+          <p><a href="reg-form.html">Cyber Security</a></p>
         </div>
       </li>
-
       <li><a href="campuses.html">Campuses</a></li>
       <li><a href="check.html">Check Result</a></li>
     </ul>
 
-    <button class="enroll-btn">Enroll Now</button>
+    <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
 
   <div class="container">
@@ -135,7 +144,6 @@
           localStorage.setItem('Cphone', phone);
           localStorage.setItem('Caddress', address);
 
-  
           window.location.href = 'card.html';
         }
       </script>
@@ -143,15 +151,15 @@
     </section>
   </div>
 
+  <!-- Proper Footer -->
   <footer class="footer">
     <div class="footer-container">
 
       <div class="footer-about">
         <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
-        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.
-        </p>
-        <p><i class="fas fa-map-marker-alt"></i> A-25 korangi 5 , Karachi, Pakistan</p>
-        <p><i class="fas fa-phone-alt"></i> +92 3253640591</p>
+        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+        <p><i class="fas fa-map-marker-alt"></i> A-25, Bahadurabad Chowrangi, Karachi, Pakistan</p>
+        <p><i class="fas fa-phone-alt"></i> +92 21 111 729 526</p>
         <p><i class="fas fa-envelope"></i> info@codex.com</p>
       </div>
 
@@ -185,10 +193,65 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 - 2026 Code X. All rights reserved. <br> Developed by Stack duo</p>
+      <p>© 2026 Code X. All rights reserved.<br>Developed by <a href="#">Stack Duo</a></p>
     </div>
   </footer>
-<script src="script.js"></script>
+
+  <script>
+    /* ── Particles ── */
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left              = Math.random() * 100 + '%';
+        p.style.animationDelay    = Math.random() * 20 + 's';
+        p.style.animationDuration = (15 + Math.random() * 10) + 's';
+        container.appendChild(p);
+      }
+    }
+
+    /* ── Navbar scroll effect ── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* ── Hamburger toggle ── */
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks   = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+
+    /* ── Course dropdown ── */
+    const dropdown     = document.getElementById('dropdown');
+    const dropdownMenu = document.getElementById('courseMenu');
+
+    dropdown.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) dropdownMenu.classList.add('show');
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) dropdownMenu.classList.remove('show');
+    });
+    dropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('show');
+      }
+    });
+
+    /* ── Close mobile menu on link click ── */
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('show');
+      });
+    });
+
+    createParticles();
+  </script>
 </body>
 
 </html>

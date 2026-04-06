@@ -4,38 +4,675 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code X - Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Code X - Empowering Digital Futures</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #ff5005;
+      --primary-light: #ff6a4d;
+      --dark: #0a0a0a;
+      --glass: rgba(255, 255, 255, 0.05);
+      --text: #ffffff;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #ff4d00 0%, #1a0000 50%, #ff5005 100%);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Animated Background Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 80, 5, 0.6);
+      border-radius: 50%;
+      animation: float 20s infinite linear;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      to {
+        transform: translateY(-10vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Enhanced Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 5%;
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 80, 5, 0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 10px 5%;
+      background: rgba(10, 10, 10, 0.95);
+    }
+
+    .logo img {
+      width: 80px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 10px rgba(255, 80, 5, 0.5));
+    }
+
+    .logo img:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      color: var(--text);
+      font-size: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      padding: 8px 0;
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--primary);
+    }
+
+    .nav-links li a:hover::after,
+    .nav-links li a.active::after {
+      width: 100%;
+    }
+
+    /* Dropdown Enhancement */
+    .dropdown {
+      position: relative;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      padding: 8px 0;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .dropdown:hover {
+      color: var(--primary);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      background: rgba(20, 20, 20, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 80, 5, 0.3);
+      border-radius: 12px;
+      display: none;
+      min-width: 200px;
+      padding: 10px 0;
+      opacity: 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .dropdown-menu.show {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu p {
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 20px;
+      color: white !important;
+      font-size: 14px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: rgba(255, 80, 5, 0.2);
+      color: var(--primary) !important;
+      padding-left: 25px;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 2px;
+      background: white;
+      transition: all 0.3s;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Enhanced Buttons */
+    .enroll-btn {
+      background: linear-gradient(135deg, var(--primary), #ff3300);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 80, 5, 0.4);
+    }
+
+    .enroll-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .enroll-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 80, 5, 0.6);
+    }
+
+    .enroll-btn:hover::before {
+      left: 100%;
+    }
+
+    .enroll-btn a {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Enhanced Hero Section */
+    .hero {
+      position: relative;
+      margin: auto;
+      text-align: center;
+      padding: 60px 40px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      max-width: 700px;
+      width: 90%;
+      z-index: 10;
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 10vw, 80px);
+      color: var(--text);
+      text-shadow:
+        0 0 20px rgba(255, 80, 5, 0.8),
+        0 0 40px rgba(255, 80, 5, 0.5),
+        0 0 80px rgba(255, 0, 0, 0.3);
+      font-weight: 800;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 20px rgba(255, 80, 5, 0.8), 0 0 40px rgba(255, 80, 5, 0.5); }
+      50% { text-shadow: 0 0 30px rgba(255, 80, 5, 1), 0 0 60px rgba(255, 80, 5, 0.8), 0 0 100px rgba(255, 0, 0, 0.5); }
+    }
+
+    .typing-container {
+      height: 40px;
+      margin: 20px 0 30px;
+    }
+
+    .typing-text {
+      font-size: clamp(18px, 4vw, 24px);
+      color: var(--text);
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      border-right: 3px solid var(--primary);
+      padding-right: 5px;
+      white-space: nowrap;
+      display: inline-block;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { border-color: var(--primary); }
+      51%, 100% { border-color: transparent; }
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid var(--primary);
+      padding: 14px 28px;
+      border-radius: 30px;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--primary);
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+
+    .hero-btn:hover {
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 80, 5, 0.4);
+    }
+
+    .hero-btn:hover::before {
+      width: 100%;
+    }
+
+    .hero-btn.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .hero-btn.primary:hover {
+      background: var(--primary-light);
+      border-color: var(--primary-light);
+    }
+
+    /* Main Content Spacer */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Enhanced Footer */
+    .footer {
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0.95), #0a0a0a);
+      color: #fff;
+      padding: 60px 5% 20px;
+      border-top: 1px solid rgba(255, 80, 5, 0.2);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-about .footer-logo {
+      width: 140px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px rgba(255, 80, 5, 0.3));
+    }
+
+    .footer-about p {
+      font-size: 0.95em;
+      line-height: 1.8;
+      margin: 10px 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-about i {
+      color: var(--primary);
+      margin-right: 10px;
+      width: 20px;
+    }
+
+    .footer-links h3,
+    .footer-courses h3,
+    .footer-resources h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.1em;
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-links h3::after,
+    .footer-courses h3::after,
+    .footer-resources h3::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-links ul,
+    .footer-courses ul,
+    .footer-resources ul {
+      list-style: none;
+    }
+
+    .footer-links ul li,
+    .footer-courses ul li,
+    .footer-resources ul li {
+      margin-bottom: 12px;
+      font-size: 0.95em;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links ul li::before,
+    .footer-courses ul li::before {
+      content: '›';
+      color: var(--primary);
+      font-size: 1.2em;
+      transition: transform 0.3s;
+    }
+
+    .footer-links ul li:hover,
+    .footer-courses ul li:hover,
+    .footer-resources ul li:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .footer-links ul li:hover::before,
+    .footer-courses ul li:hover::before {
+      transform: translateX(3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 25px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9em;
+      margin-top: 40px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-bottom a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        gap: 30px;
+        padding: 40px 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links.show {
+        transform: translateX(0);
+      }
+
+      .dropdown-menu {
+        position: static;
+        transform: none;
+        background: rgba(255, 80, 5, 0.1);
+        border: 1px solid rgba(255, 80, 5, 0.3);
+        margin-top: 10px;
+        opacity: 1;
+        display: none;
+      }
+
+      .dropdown-menu.show {
+        display: block;
+        transform: none;
+      }
+
+      .enroll-btn {
+        display: none;
+      }
+
+      .hero {
+        padding: 40px 25px;
+        margin-top: 80px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .footer-about .footer-logo {
+        margin: 0 auto 20px;
+      }
+
+      .footer-links h3::after,
+      .footer-courses h3::after,
+      .footer-resources h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .footer-links ul li,
+      .footer-courses ul li {
+        justify-content: center;
+      }
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-light);
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Animated Particles -->
+  <div class="particles" id="particles"></div>
 
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
-
-  <header class="navbar">
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
     <div class="logo">
       <a href="index.html">
         <img src="./Images/codex withou bg head.png" alt="Code X Logo">
       </a>
     </div>
 
-    <ul class="nav-links">
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
-
-
-      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
-        Select Course
+      <li class="dropdown" id="dropdown">
+        <span>Select Course <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 0.8em;"></i></span>
         <div class="dropdown-menu" id="courseMenu">
-          <p><a href="reg-form.html">graphic designing</a></p>
-          <p><a href="reg-form.html">web-development</a></p>
-          <p><a href="reg-form.html">data science</a></p>
-          <p><a href="reg-form.html">cyber security</a></p>
+          <p><a href="reg-form.html">Graphic Designing</a></p>
+          <p><a href="reg-form.html">Web Development</a></p>
+          <p><a href="reg-form.html">Data Science</a></p>
+          <p><a href="reg-form.html">Cyber Security</a></p>
         </div>
       </li>
-
-
       <li><a href="campuses.html">Campuses</a></li>
       <li><a href="check.html">Check Result</a></li>
     </ul>
@@ -43,30 +680,34 @@
     <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
 
+  <!-- Main Content -->
+  <main>
+    <section class="hero">
+      <h1>CODE X</h1>
+      <div class="typing-container">
+        <span class="typing-text" id="typingText"></span>
+      </div>
+      <div class="hero-buttons">
+        <a href="reg-form.html" class="hero-btn primary">
+          <i class="fas fa-user-plus"></i> Registration Form
+        </a>
+        <a href="check.html#download" class="hero-btn">
+          <i class="fas fa-id-card"></i> Download ID Card
+        </a>
+      </div>
+    </section>
+  </main>
 
-  <section class="hero">
-    <h1>CODE X</h1>
-    <p><span class="typing-text"></span></p>
-    <div class="butn" >
-<a href="reg-form.html" class="hero-btn">REGISTRATION FORM</a>
-<a href="check.html#download" class="hero-btn">DOWNLOAD ID CARD</a>
-</div>
-
-  </section>
-
-
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
-
       <div class="footer-about">
         <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
-        <p>Empowering students with world class IT education and training programs to build a brighter digital future.
-        </p>
-        <p><i class="fas fa-map-marker-alt"></i> A-25, korangi 5, Karachi, Pakistan</p>
-        <p><i class="fas fa-phone-alt"></i> +92 3253640591</p>
+        <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
+        <p><i class="fas fa-map-marker-alt"></i> A-25, Korangi 5, Karachi, Pakistan</p>
+        <p><i class="fas fa-phone-alt"></i> +92 325 3640591</p>
         <p><i class="fas fa-envelope"></i> info@codex.com</p>
       </div>
-
 
       <div class="footer-links">
         <h3>Quick Links</h3>
@@ -78,7 +719,6 @@
         </ul>
       </div>
 
-
       <div class="footer-courses">
         <h3>Our Courses</h3>
         <ul>
@@ -89,7 +729,6 @@
         </ul>
       </div>
 
-
       <div class="footer-resources">
         <h3>Resources</h3>
         <ul>
@@ -99,12 +738,119 @@
       </div>
     </div>
 
-
     <div class="footer-bottom">
-      <p>© 2026 - 2026 Code X. All rights reserved. <br> Developed by Stack Duo</p>
+      <p>© 2026 Code X. All rights reserved. <br> Developed by <a href="#">Stack Duo</a></p>
     </div>
   </footer>
-  <script src="script.js"></script>
+
+  <script>
+    // Particle Animation
+    function createParticles() {
+      const container = document.getElementById('particles');
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+        container.appendChild(particle);
+      }
+    }
+
+    // Typing Effect
+    const phrases = [
+      "Master the Future of Tech",
+      "Learn Graphic Designing",
+      "Become a Web Developer",
+      "Explore Data Science",
+      "Secure the Digital World"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById('typingText');
+
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      
+      if (isDeleting) {
+        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = 500;
+      }
+
+      setTimeout(typeEffect, typeSpeed);
+    }
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+
+    // Dropdown Toggle (for both hover and click)
+    const dropdown = document.getElementById('dropdown');
+    const dropdownMenu = document.getElementById('courseMenu');
+    
+    dropdown.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) {
+        dropdownMenu.classList.add('show');
+      }
+    });
+    
+    dropdown.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+
+    dropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('show');
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('show');
+      });
+    });
+
+    // Initialize
+    createParticles();
+    typeEffect();
+  </script>
 </body>
 
 </html>

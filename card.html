@@ -1,166 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code X Academy ID Card</title>
-  <link rel="stylesheet" href="card.css">
-</head>
+  <title>Code X Academy - ID Card</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --primary: #cc0000;
+      --bright: #ff3300;
+      --card-bg: #0d0000;
+      --card-inner: #1a0000;
+      --card-deep: #150000;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a0000 0%, #0a0000 50%, #2a0000 100%);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      overflow-x: hidden;
+      padding-top: 90px;
+    }
+
+    @keyframes gradientMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 0; }
+    .particle { position: absolute; width: 4px; height: 4px; background: rgba(204,0,0,0.5); border-radius: 50%; animation: float 20s infinite linear; }
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      to   { transform: translateY(-10vh) translateX(100px); opacity: 0; }
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0a0000; }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--bright); }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 15px 5%;
+      background: rgba(10,0,0,0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(204,0,0,0.3);
+      z-index: 1000; transition: all 0.3s;
+    }
+    .navbar.scrolled { padding: 10px 5%; background: rgba(10,0,0,0.97); }
+    .logo img { width: 80px; transition: transform 0.3s; filter: drop-shadow(0 0 10px rgba(204,0,0,0.5)); }
+    .logo img:hover { transform: scale(1.05) rotate(-2deg); }
+
+    .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+    .nav-links li a { color: #fff; font-size: 15px; text-decoration: none; position: relative; font-weight: 500; letter-spacing: 0.5px; transition: all 0.3s; padding: 8px 0; }
+    .nav-links li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--bright); }
+    .nav-links li a:hover::after, .nav-links li a.active::after { width: 100%; }
+
+    .dropdown { position: relative; color: white; font-size: 15px; cursor: pointer; padding: 8px 0; font-weight: 500; transition: color 0.3s; }
+    .dropdown:hover { color: var(--bright); }
+    .dropdown-menu { position: absolute; top: 40px; left: 50%; transform: translateX(-50%) translateY(-10px); background: rgba(20,0,0,0.97); backdrop-filter: blur(20px); border: 1px solid rgba(204,0,0,0.35); border-radius: 12px; display: none; min-width: 200px; padding: 10px 0; opacity: 0; transition: all 0.3s; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+    .dropdown-menu.show { display: block; opacity: 1; transform: translateX(-50%) translateY(0); }
+    .dropdown-menu p { padding: 0; margin: 0; }
+    .dropdown-menu a { display: block; padding: 12px 20px; color: white !important; font-size: 14px; transition: all 0.3s; text-decoration: none; }
+    .dropdown-menu a:hover { background: rgba(204,0,0,0.2); color: var(--bright) !important; padding-left: 25px; }
+
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+    .menu-toggle span { width: 25px; height: 2px; background: white; transition: all 0.3s; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    .enroll-btn { background: linear-gradient(135deg, var(--primary), #990000); border: none; padding: 12px 24px; border-radius: 30px; color: white; cursor: pointer; font-weight: 600; font-size: 14px; position: relative; overflow: hidden; transition: all 0.3s; box-shadow: 0 4px 15px rgba(204,0,0,0.4); }
+    .enroll-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); transition: left 0.5s; }
+    .enroll-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(204,0,0,0.6); }
+    .enroll-btn:hover::before { left: 100%; }
+    .enroll-btn a { text-decoration: none; color: white; font-size: 14px; }
+
+    /* MAIN */
+    .main-content { min-height: 100vh; padding: 50px 20px 60px; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+
+    .id-card-container { display: flex; flex-direction: column; gap: 22px; align-items: center; }
+    .id-card-container.capturing { background: #0d0000; padding: 40px; border-radius: 20px; }
+
+    /* CARD */
+    .student-card { width: 540px; border-radius: 14px; overflow: hidden; border: 1px solid var(--primary); background: var(--card-bg); position: relative; transition: transform 0.4s, box-shadow 0.4s; }
+    .student-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(204,0,0,0.35); }
+
+    .orange-accent { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary), var(--bright), var(--primary)); }
+
+    /* FRONT HEADER */
+    .card-header-section { display: flex; align-items: center; gap: 12px; padding: 14px 18px 12px; background: var(--card-inner); border-bottom: 1px solid var(--primary); }
+    .logo-area { width: 44px; height: 44px; background: var(--primary); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1.5px solid var(--bright); overflow: hidden; }
+    .logo-area img { width: 34px; height: 34px; object-fit: contain; filter: brightness(0) invert(1); }
+    .institute-info h1 { font-size: 15px; font-weight: 600; color: var(--bright); letter-spacing: 2px; margin: 0; }
+    .institute-info span { font-size: 9px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2.5px; display: block; margin-top: 2px; }
+
+    /* FRONT BODY */
+    .card-body-section { display: flex; }
+    .photo-area { width: 108px; background: var(--card-deep); display: flex; align-items: center; justify-content: center; padding: 16px 0; border-right: 1px solid var(--primary); flex-shrink: 0; }
+    .photo-placeholder { width: 76px; height: 92px; background: var(--card-inner); border-radius: 9px; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .photo-placeholder i { font-size: 2.2em; color: rgba(255,255,255,0.2); }
+    .details-area { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px; }
+    .detail-item { padding: 7px 10px; background: var(--card-inner); border-radius: 7px; border-left: 2.5px solid var(--primary); transition: background 0.3s; }
+    .detail-item:hover { background: rgba(204,0,0,0.15); }
+    .detail-item label { display: block; font-size: 9px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
+    .detail-item p { font-size: 11.5px; font-weight: 500; color: #fff; margin: 0; line-height: 1.3; }
+
+    /* FRONT FOOTER */
+    .card-footer-section { display: flex; justify-content: space-between; align-items: center; padding: 11px 18px; background: var(--card-inner); border-top: 1px solid var(--primary); }
+    .barcode-area { display: flex; flex-direction: column; gap: 4px; }
+    .barcode-lines { width: 130px; height: 30px; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.65) 0px, rgba(255,255,255,0.65) 2px, transparent 2px, transparent 5px, rgba(255,255,255,0.65) 5px, rgba(255,255,255,0.65) 7px, transparent 7px, transparent 11px, rgba(255,255,255,0.65) 11px, rgba(255,255,255,0.65) 13px, transparent 13px, transparent 16px); border-radius: 3px; }
+    .barcode-area span { font-size: 9px; color: rgba(255,255,255,0.35); letter-spacing: 2px; }
+    .validity { background: var(--primary); color: white; padding: 7px 14px; border-radius: 8px; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+
+    /* BACK CARD */
+    .back-header { background: var(--primary); padding: 14px 18px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .back-header img { width: 36px; height: 36px; object-fit: contain; filter: brightness(0) invert(1); }
+    .back-header h2 { font-size: 14px; font-weight: 600; color: white; letter-spacing: 3px; margin: 0; }
+
+    .back-content { display: flex; }
+    .qr-area { width: 112px; background: var(--card-deep); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 16px 0; border-right: 1px solid var(--primary); flex-shrink: 0; }
+    .qr-area img { width: 78px; height: 78px; background: white; padding: 6px; border-radius: 8px; border: 2px solid var(--primary); }
+    .qr-area span { font-size: 8px; color: rgba(255,255,255,0.35); letter-spacing: 1px; text-transform: uppercase; text-align: center; }
+
+    .contact-details { flex: 1; display: flex; flex-direction: column; gap: 7px; padding: 14px; }
+    .contact-item { display: flex; align-items: center; gap: 10px; padding: 7px 10px; background: var(--card-inner); border-radius: 7px; border-left: 2.5px solid var(--primary); font-size: 11px; color: rgba(255,255,255,0.85); transition: background 0.3s; }
+    .contact-item:hover { background: rgba(204,0,0,0.15); }
+    .contact-item i { width: 24px; height: 24px; background: rgba(204,0,0,0.2); color: var(--bright); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+
+    .back-footer { padding: 11px 18px; background: var(--card-inner); border-top: 1px solid var(--primary); display: flex; justify-content: space-between; align-items: center; }
+    .motto { font-size: 11px; color: var(--bright); font-weight: 500; font-style: italic; }
+    .developer { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 1.5px; text-transform: uppercase; }
+
+    /* DOWNLOAD BTN */
+    .action-buttons { text-align: center; }
+    .download-btn { padding: 14px 44px; background: linear-gradient(135deg, var(--primary), #990000); border: none; border-radius: 35px; color: white; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(204,0,0,0.4); transition: all 0.3s; position: relative; overflow: hidden; }
+    .download-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s; }
+    .download-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 45px rgba(204,0,0,0.55); }
+    .download-btn:hover::before { left: 100%; }
+
+    /* FOOTER */
+    .footer { background: linear-gradient(180deg, rgba(10,0,0,0.97), #0a0000); color: #fff; padding: 60px 5% 20px; border-top: 1px solid rgba(204,0,0,0.25); position: relative; z-index: 10; }
+    .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--primary), transparent); }
+    .footer-container { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
+    .footer-about .footer-logo { width: 140px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(204,0,0,0.3)); }
+    .footer-about p { font-size: 0.95em; line-height: 1.8; margin: 10px 0; color: rgba(255,255,255,0.75); }
+    .footer-about i { color: var(--bright); margin-right: 10px; width: 20px; }
+    .footer-links h3, .footer-courses h3, .footer-resources h3 { color: var(--bright); margin-bottom: 20px; font-size: 1.1em; font-weight: 600; position: relative; display: inline-block; }
+    .footer-links h3::after, .footer-courses h3::after, .footer-resources h3::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 30px; height: 2px; background: var(--primary); }
+    .footer-links ul, .footer-courses ul, .footer-resources ul { list-style: none; padding: 0; }
+    .footer-links ul li, .footer-courses ul li, .footer-resources ul li { margin-bottom: 12px; font-size: 0.95em; color: rgba(255,255,255,0.65); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+    .footer-links ul li::before, .footer-courses ul li::before { content: '›'; color: var(--bright); font-size: 1.2em; transition: transform 0.3s; }
+    .footer-links ul li:hover, .footer-courses ul li:hover, .footer-resources ul li:hover { color: var(--bright); transform: translateX(5px); }
+    .footer-bottom { text-align: center; padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.9em; margin-top: 40px; color: rgba(255,255,255,0.5); }
+    .footer-bottom a { color: var(--bright); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 968px) { .footer-container { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .nav-links { position: fixed; top: 70px; left: 0; width: 100%; height: calc(100vh - 70px); background: rgba(10,0,0,0.98); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: start; gap: 30px; padding: 40px 0; transform: translateX(-100%); transition: transform 0.3s; }
+      .nav-links.show { transform: translateX(0); }
+      .dropdown-menu { position: static; transform: none; background: rgba(204,0,0,0.1); border: 1px solid rgba(204,0,0,0.3); margin-top: 10px; opacity: 1; display: none; }
+      .dropdown-menu.show { display: block; transform: none; }
+      .enroll-btn { display: none; }
+      .student-card { width: 100%; max-width: 480px; }
+      .card-body-section { flex-direction: column; }
+      .photo-area { width: 100%; border-right: none; border-bottom: 1px solid var(--primary); padding: 16px; justify-content: center; }
+      .details-area { grid-template-columns: 1fr 1fr; }
+      .back-content { flex-direction: column; }
+      .qr-area { width: 100%; border-right: none; border-bottom: 1px solid var(--primary); padding: 16px; flex-direction: row; gap: 16px; justify-content: center; }
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+      .footer-about .footer-logo { margin: 0 auto 20px; }
+      .footer-links h3::after, .footer-courses h3::after, .footer-resources h3::after { left: 50%; transform: translateX(-50%); }
+      .footer-links ul li, .footer-courses ul li { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .student-card { max-width: 100%; }
+      .details-area { grid-template-columns: 1fr; }
+      .institute-info h1 { font-size: 13px; }
+      .download-btn { padding: 12px 28px; font-size: 13px; }
+    }
+  </style>
+</head>
 <body>
 
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
+  <div class="particles" id="particles"></div>
 
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="logo">
-      <a href="index.html">
-        <img src="./Images/codex withou bg head.png" alt="Code X Logo">
-      </a>
+      <a href="index.html"><img src="./Images/codex withou bg head.png" alt="Code X Logo"></a>
     </div>
-
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-
-      <li class="dropdown" onmouseover="show()" onmouseout="hide()">
-        Select Course
+      <li class="dropdown" id="dropdown">
+        <span>Select Course <i class="fas fa-chevron-down" style="margin-left:5px;font-size:0.8em;"></i></span>
         <div class="dropdown-menu" id="courseMenu">
-          <p><a href="reg-form.html">graphic designing</a></p>
-          <p><a href="reg-form.html">web-development</a></p>
-          <p><a href="reg-form.html">data science</a></p>
-          <p><a href="reg-form.html">cyber security</a></p>
+          <p><a href="reg-form.html">Graphic Designing</a></p>
+          <p><a href="reg-form.html">Web Development</a></p>
+          <p><a href="reg-form.html">Data Science</a></p>
+          <p><a href="reg-form.html">Cyber Security</a></p>
         </div>
       </li>
-
       <li><a href="campuses.html">Campuses</a></li>
       <li><a href="check.html">Check Result</a></li>
     </ul>
-
     <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
 
-  <!-- Card Container -->
-  <div class="card-container" id="card">
+  <main class="main-content">
+    <div class="id-card-container" id="cardCapture">
 
-    <!-- FRONT CARD -->
-    <div class="id-card">
-      <div class="top-strip"></div>
-      <div class="header">
-        <img src="./Images/codex withou bg head.png" alt="">
-        <h1>VIRTUAL ACADEMY</h1>
+      <!-- FRONT CARD -->
+      <div class="student-card front">
+        <div class="orange-accent"></div>
+        <div class="card-header-section">
+          <div class="logo-area">
+            <img src="./Images/codex withou bg head.png" alt="Code X">
+          </div>
+          <div class="institute-info">
+            <h1>CODE X ACADEMY</h1>
+            <span>Student Identification Card</span>
+          </div>
+        </div>
+        <div class="card-body-section">
+          <div class="photo-area">
+            <div class="photo-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div class="details-area">
+            <div class="detail-item"><label>Student Name</label><p id="studentName">Student Name</p></div>
+            <div class="detail-item"><label>Father's Name</label><p id="fatherName">Father's Name</p></div>
+            <div class="detail-item"><label>Contact</label><p id="contactNum">Contact Number</p></div>
+            <div class="detail-item"><label>Address</label><p id="addressLoc">Address</p></div>
+          </div>
+        </div>
+        <div class="card-footer-section">
+          <div class="barcode-area">
+            <div class="barcode-lines"></div>
+            <span>ID: CX-2026-001</span>
+          </div>
+          <div class="validity">Valid Until: December 2026</div>
+        </div>
       </div>
-      <div class="details">
-        <div class="row" id="Cname"><span>Name:</span><strong></strong></div>
-        <div class="row" id="Cfather"><span>Father:</span><strong></strong></div>
-        <div class="row" id="Cphone"><span>Phone:</span><strong></strong></div>
-        <div class="row" id="Caddress"><span>Address:</span><strong></strong></div> 
+
+      <!-- BACK CARD -->
+      <div class="student-card back">
+        <div class="orange-accent"></div>
+        <div class="back-header">
+          <img src="./Images/codex withou bg head.png" alt="Code X">
+          <h2>CODE X ACADEMY</h2>
+        </div>
+        <div class="back-content">
+          <div class="qr-area">
+            <img src="Images/qr.svg" alt="QR Code">
+            <span>Scan for verification</span>
+          </div>
+          <div class="contact-details">
+            <div class="contact-item"><i class="fas fa-globe"></i><span>www.codexacademy.com</span></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i><span>info@codex.com</span></div>
+            <div class="contact-item"><i class="fas fa-phone"></i><span>+92 3253640591</span></div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>A-25, Korangi 5, Karachi</span></div>
+          </div>
+        </div>
+        <div class="back-footer">
+          <p class="motto">"Your Virtual Path To Tech Skills"</p>
+          <p class="developer">Developed by Stack Duo</p>
+        </div>
       </div>
-      <div class="stack">
-        <p>Your Virtual Path To Tech Skills</p>
-      </div>
+
     </div>
 
-    <!-- BACK CARD -->
-    <div class="id-card">
-      <div class="top-strip"></div>
-      <div class="header">
-        <img src="./Images/codex withou bg head.png" alt="">
-        <h1>VIRTUAL ACADEMY</h1>
-      </div>
-      <img class="back" src="Images/qr.svg" alt="">
-      <h4>For More Information Scan <br>The QR Code Above </h4> <br> 
-       <div class="row adres" id="Caddress"><span><br></span><strong></strong></div>
-       <div class="row adres" id="Cname"><span></span><strong></strong></div>
-      <div class="c">
-        <p>Developed By: Stack Duo</p>
-      </div>
+    <div class="action-buttons">
+      <button id="downloadBtn" class="download-btn">
+        <i class="fas fa-download"></i>
+        <span>Download ID Card</span>
+      </button>
     </div>
-
-  </div>
-
-  <!-- DOWNLOAD BUTTON -->
-  <div class="download-btn-wrap">
-    <button id="downloadBtn">Download Card</button>
-  </div>
-
-  <!-- Script -->
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script src="script.js"></script>
+  </main>
 
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-about">
         <img src="./Images/codex withou bg head.png" alt="Code X Logo" class="footer-logo">
         <p>Empowering students with world-class IT education and training programs to build a brighter digital future.</p>
-        <p>A-25, korabgi 5, Karachi, Pakistan</p>
-        <p>+92 03253640591</p>
-        <p>info@codex.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> A-25, Korangi 5, Karachi, Pakistan</p>
+        <p><i class="fas fa-phone-alt"></i> +92 3253640591</p>
+        <p><i class="fas fa-envelope"></i> info@codex.com</p>
       </div>
-
       <div class="footer-links">
         <h3>Quick Links</h3>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Campuses</li>
-          <li>Check Result</li>
-        </ul>
+        <ul><li>Home</li><li>About</li><li>Campuses</li><li>Check Result</li></ul>
       </div>
-
       <div class="footer-courses">
         <h3>Our Courses</h3>
-        <ul>
-          <li>Graphic Designing</li>
-          <li>Web Development</li>
-          <li>Data Science</li>
-          <li>Cyber Security</li>
-        </ul>
+        <ul><li>Graphic Designing</li><li>Web Development</li><li>Data Science</li><li>Cyber Security</li></ul>
       </div>
-
       <div class="footer-resources">
         <h3>Resources</h3>
-        <ul>
-          <li>Privacy Policy</li>
-          <li>Terms of Service</li>
-        </ul>
+        <ul><li>Privacy Policy</li><li>Terms of Service</li></ul>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>© 2026 Code X. All rights reserved.<br>Developed by Ahmed & Mudasir</p>
+      <p>© 2026 Code X. All rights reserved.<br>Developed by <a href="#">Stack Duo</a></p>
     </div>
   </footer>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
-<script>
-  // LOAD DATA
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("#Cname strong").innerText =
-      localStorage.getItem("Cname") || "";
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    function createParticles() {
+      const c = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDelay = Math.random() * 20 + 's';
+        p.style.animationDuration = (15 + Math.random() * 10) + 's';
+        c.appendChild(p);
+      }
+    }
 
-    document.querySelector("#Cfather strong").innerText =
-      localStorage.getItem("Cfather") || "";
-
-    document.querySelector("#Cphone strong").innerText =
-      localStorage.getItem("Cphone") || "";
-
-    document.querySelector("#Caddress strong").innerText =
-      localStorage.getItem("Caddress") || "";
-  });
-
-  // DOWNLOAD CARD
-  document.getElementById("downloadBtn").addEventListener("click", function () {
-    html2canvas(document.getElementById("card"), { scale: 2 }).then(canvas => {
-      const link = document.createElement("a");
-      link.download = "CodeX-ID-Card.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
-  });
-</script>
 
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks   = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('show'); });
+
+    const dropdown     = document.getElementById('dropdown');
+    const dropdownMenu = document.getElementById('courseMenu');
+    dropdown.addEventListener('mouseenter', () => { if (window.innerWidth > 768) dropdownMenu.classList.add('show'); });
+    dropdown.addEventListener('mouseleave', () => { if (window.innerWidth > 768) dropdownMenu.classList.remove('show'); });
+    dropdown.addEventListener('click', (e) => { if (window.innerWidth <= 768) { e.preventDefault(); dropdownMenu.classList.toggle('show'); } });
+    document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('show'); }));
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("studentName").textContent = localStorage.getItem("Cname")    || "Student Name";
+      document.getElementById("fatherName").textContent  = localStorage.getItem("Cfather")  || "Father's Name";
+      document.getElementById("contactNum").textContent  = localStorage.getItem("Cphone")   || "Contact Number";
+      document.getElementById("addressLoc").textContent  = localStorage.getItem("Caddress") || "Address";
+    });
+
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      const btn  = this;
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+      const el = document.getElementById("cardCapture");
+      el.classList.add('capturing');
+      html2canvas(el, { scale: 3, backgroundColor: '#0d0000', useCORS: true, allowTaint: true, logging: false })
+        .then(canvas => {
+          el.classList.remove('capturing');
+          const a = document.createElement("a");
+          a.download = "CodeX-ID-Card.png";
+          a.href = canvas.toDataURL("image/png", 1.0);
+          a.click();
+          btn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
+          setTimeout(() => btn.innerHTML = orig, 2000);
+        })
+        .catch(err => {
+          el.classList.remove('capturing');
+          btn.innerHTML = '<i class="fas fa-times"></i> Failed';
+          setTimeout(() => btn.innerHTML = orig, 2000);
+        });
+    });
+
+    createParticles();
+  </script>
 </body>
-
 </html>
