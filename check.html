@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code X - Check Result</title>
+  <link rel="stylesheet" href="about.css">
   <link rel="stylesheet" href="check.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -217,7 +218,130 @@
     });
 
     createParticles();
-  </script>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNNMgEmV2S94-w3p-llxyBoIVpMGu1krA",
+    authDomain: "xcode-cbf8a.firebaseapp.com",
+    projectId: "xcode-cbf8a",
+    storageBucket: "xcode-cbf8a.firebasestorage.app",
+    messagingSenderId: "915347383140",
+    appId: "1:915347383140:web:a28ec390cc168d1b76d071"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+
+  /* ── Particles ── */
+  function createParticles() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 50; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDelay = Math.random() * 20 + 's';
+      p.style.animationDuration = (15 + Math.random() * 10) + 's';
+      container.appendChild(p);
+    }
+  }
+
+  /* ── Navbar ── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks   = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
+  const dropdown     = document.getElementById('dropdown');
+  const dropdownMenu = document.getElementById('courseMenu');
+  dropdown.addEventListener('mouseenter', () => { if (window.innerWidth > 768) dropdownMenu.classList.add('show'); });
+  dropdown.addEventListener('mouseleave', () => { if (window.innerWidth > 768) dropdownMenu.classList.remove('show'); });
+  dropdown.addEventListener('click', (e) => { if (window.innerWidth <= 768) { e.preventDefault(); dropdownMenu.classList.toggle('show'); } });
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('show'); });
+  });
+
+  /* ── Tab Switching ── */
+  window.switchTab = function(tabName) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.closest('.tab-btn').classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    document.getElementById(tabName + '-tab').classList.add('active');
+  };
+
+  /* ── Search Result by Roll Number ── */
+  document.querySelector('.result-btn').addEventListener('click', async () => {
+    const roll = document.querySelector('#result-tab input').value.trim();
+    if (!roll) return alert('Please enter your roll number');
+
+    const btn = document.querySelector('.result-btn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+
+    // Result lookup logic - search by roll number
+    // For now shows a message (you can add result data to Firestore later)
+    try {
+      // You can store results in Firestore under "results" collection
+      const snap = await getDoc(doc(db, "results", roll));
+      if (snap.exists()) {
+        const r = snap.data();
+        showResultCard(r);
+      } else {
+        alert('No result found for this roll number.');
+      }
+    } catch(err) {
+      alert('Error fetching result.');
+    }
+    btn.innerHTML = '<i class="fas fa-search"></i> Search Result';
+  });
+
+  function showResultCard(r) {
+    // Remove existing result display if any
+    document.getElementById('result-display')?.remove();
+
+    const div = document.createElement('div');
+    div.id = 'result-display';
+    div.style.cssText = 'margin-top:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,80,5,0.3);border-radius:12px;padding:16px;';
+    div.innerHTML = `
+      <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:8px;">RESULT</p>
+      <p style="font-size:16px;font-weight:600;">${r.studentName || '—'}</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:13px;margin-top:4px;">Course: ${r.course || '—'}</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:13px;">Grade: <span style="color:#ff5005;font-weight:600;">${r.grade || '—'}</span></p>
+      <p style="color:rgba(255,255,255,0.7);font-size:13px;">Status: <span style="color:${r.status === 'Pass' ? '#4ade80' : '#f87171'};font-weight:600;">${r.status || '—'}</span></p>
+    `;
+    document.getElementById('result-tab').appendChild(div);
+  }
+
+  /* ── Download ID Card by Phone Number ── */
+  document.querySelector('.download-btn').addEventListener('click', async () => {
+    const phone = document.querySelector('#idcard-tab input').value.trim();
+    if (!phone) return alert('Please enter your registered phone number');
+
+    const btn = document.querySelector('.download-btn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+
+    try {
+      const snap = await getDoc(doc(db, "students", phone));
+      if (snap.exists()) {
+        // Go to card.html with phone as URL param
+        window.location.href = `card.html?phone=${encodeURIComponent(phone)}`;
+      } else {
+        alert('No student found with this phone number.');
+        btn.innerHTML = '<i class="fas fa-download"></i> Download ID Card';
+      }
+    } catch(err) {
+      alert('Error fetching data.');
+      btn.innerHTML = '<i class="fas fa-download"></i> Download ID Card';
+    }
+  });
+
+  createParticles();
+</script>
+
 
 </body>
 

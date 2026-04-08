@@ -130,23 +130,55 @@
         </div>
       </form>
     
-      <script>
-        function saveData(e){
-          e.preventDefault();
+      <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
-          const name = document.getElementById('name').value;
-          const father = document.getElementById('Fathername').value;
-          const phone = document.getElementById('phone').value;
-          const address = document.getElementById('address').value;
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNNMgEmV2S94-w3p-llxyBoIVpMGu1krA",
+    authDomain: "xcode-cbf8a.firebaseapp.com",
+    projectId: "xcode-cbf8a",
+    storageBucket: "xcode-cbf8a.firebasestorage.app",
+    messagingSenderId: "915347383140",
+    appId: "1:915347383140:web:a28ec390cc168d1b76d071"
+  };
 
-          localStorage.setItem('Cname', name);  
-          localStorage.setItem('Cfather', father);
-          localStorage.setItem('Cphone', phone);
-          localStorage.setItem('Caddress', address);
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-          window.location.href = 'card.html';
-        }
-      </script>
+  window.saveData = async function(e) {
+    e.preventDefault();
+
+    const name    = document.getElementById('name').value.trim();
+    const father  = document.getElementById('Fathername').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = 'Saving...';
+    btn.disabled = true;
+
+    try {
+      // Phone number as document ID (unique per student)
+      await setDoc(doc(db, "students", phone), {
+        name, father, phone, address,
+        enrolledAt: new Date().toISOString()
+      });
+
+      // Also keep in localStorage for card.html quick access
+      localStorage.setItem('Cname',    name);
+      localStorage.setItem('Cfather',  father);
+      localStorage.setItem('Cphone',   phone);
+      localStorage.setItem('Caddress', address);
+
+      window.location.href = 'card.html';
+    } catch (err) {
+      alert('Error saving data. Please try again.');
+      btn.textContent = 'SUBMIT APPLICATION';
+      btn.disabled = false;
+    }
+  };
+</script>
 
     </section>
   </div>
@@ -252,6 +284,8 @@
 
     createParticles();
   </script>
+
+  
 </body>
 
 </html>

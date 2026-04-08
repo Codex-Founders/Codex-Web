@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code X Academy - ID Card</title>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -322,67 +323,53 @@
       <p>© 2026 Code X. All rights reserved.<br>Developed by <a href="#">Stack Duo</a></p>
     </div>
   </footer>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script>
-    function createParticles() {
-      const c = document.getElementById('particles');
-      for (let i = 0; i < 50; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDelay = Math.random() * 20 + 's';
-        p.style.animationDuration = (15 + Math.random() * 10) + 's';
-        c.appendChild(p);
-      }
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNNMgEmV2S94-w3p-llxyBoIVpMGu1krA",
+    authDomain: "xcode-cbf8a.firebaseapp.com",
+    projectId: "xcode-cbf8a",
+    storageBucket: "xcode-cbf8a.firebasestorage.app",
+    messagingSenderId: "915347383140",
+    appId: "1:915347383140:web:a28ec390cc168d1b76d071"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+
+  async function loadStudentData() {
+    // Try localStorage first (just came from form)
+    let phone = localStorage.getItem('Cphone');
+
+    // If coming from check.html via URL param
+    const urlPhone = new URLSearchParams(window.location.search).get('phone');
+    if (urlPhone) phone = urlPhone;
+
+    if (!phone) {
+      document.getElementById('studentName').textContent = 'Not Found';
+      return;
     }
 
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
+    try {
+      const snap = await getDoc(doc(db, "students", phone));
+      if (snap.exists()) {
+        const d = snap.data();
+        document.getElementById('studentName').textContent = d.name    || '—';
+        document.getElementById('fatherName').textContent  = d.father  || '—';
+        document.getElementById('contactNum').textContent  = d.phone   || '—';
+        document.getElementById('addressLoc').textContent  = d.address || '—';
+      } else {
+        document.getElementById('studentName').textContent = 'Not Found';
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks   = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('show'); });
-
-    const dropdown     = document.getElementById('dropdown');
-    const dropdownMenu = document.getElementById('courseMenu');
-    dropdown.addEventListener('mouseenter', () => { if (window.innerWidth > 768) dropdownMenu.classList.add('show'); });
-    dropdown.addEventListener('mouseleave', () => { if (window.innerWidth > 768) dropdownMenu.classList.remove('show'); });
-    dropdown.addEventListener('click', (e) => { if (window.innerWidth <= 768) { e.preventDefault(); dropdownMenu.classList.toggle('show'); } });
-    document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('show'); }));
-
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("studentName").textContent = localStorage.getItem("Cname")    || "Student Name";
-      document.getElementById("fatherName").textContent  = localStorage.getItem("Cfather")  || "Father's Name";
-      document.getElementById("contactNum").textContent  = localStorage.getItem("Cphone")   || "Contact Number";
-      document.getElementById("addressLoc").textContent  = localStorage.getItem("Caddress") || "Address";
-    });
-
-    document.getElementById("downloadBtn").addEventListener("click", function () {
-      const btn  = this;
-      const orig = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-      const el = document.getElementById("cardCapture");
-      el.classList.add('capturing');
-      html2canvas(el, { scale: 3, backgroundColor: '#0d0000', useCORS: true, allowTaint: true, logging: false })
-        .then(canvas => {
-          el.classList.remove('capturing');
-          const a = document.createElement("a");
-          a.download = "CodeX-ID-Card.png";
-          a.href = canvas.toDataURL("image/png", 1.0);
-          a.click();
-          btn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
-          setTimeout(() => btn.innerHTML = orig, 2000);
-        })
-        .catch(err => {
-          el.classList.remove('capturing');
-          btn.innerHTML = '<i class="fas fa-times"></i> Failed';
-          setTimeout(() => btn.innerHTML = orig, 2000);
-        });
-    });
-
-    createParticles();
-  </script>
+  document.addEventListener('DOMContentLoaded', loadStudentData);
+</script>
+</script>
 </body>
 </html>
