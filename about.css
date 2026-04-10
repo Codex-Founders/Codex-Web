@@ -416,7 +416,7 @@ body {
 
 /* ── GitHub buttons ── */
 .github-btn {
-  text-decoration: none;
+  text-decoration: none;  
   color: #fff;
   background: linear-gradient(135deg, #ff0000, #8b0000);
   padding: 8px 12px;
