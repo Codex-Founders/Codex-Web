@@ -13,10 +13,10 @@
 
 <body>
 
-  <!-- Animated Particles -->
+
   <div class="particles" id="particles"></div>
 
-  <!-- Fixed Navbar -->
+  
   <header class="navbar" id="navbar">
     <div class="logo">
       <a href="index.html">
@@ -49,13 +49,13 @@
     <button class="enroll-btn"><a href="reg-form.html">Enroll Now</a></button>
   </header>
 
-  <!-- Main Content -->
+  
   <main class="main-content">
     
-    <!-- Beautiful Combined Card -->
+    
     <div class="result-card">
       
-      <!-- Card Header with Icon -->
+   
       <div class="card-header">
         <div class="icon-circle">
           <i class="fas fa-graduation-cap"></i>
@@ -64,8 +64,7 @@
         <p>Access your results and download your ID card</p>
       </div>
 
-      <!-- Tab Navigation -->
-      <div class="tab-nav">
+         <div class="tab-nav">
         <button class="tab-btn active" onclick="switchTab('result')">
           <i class="fas fa-search"></i> Check Result
         </button>
@@ -74,7 +73,7 @@
         </button>
       </div>
 
-      <!-- Check Result Section -->
+   
       <div id="result-tab" class="tab-content active">
         <div class="input-group">
           <label>Enter Your Roll Number</label>
@@ -88,8 +87,7 @@
         </button>
       </div>
 
-      <!-- Download ID Card Section -->
-      <div id="idcard-tab" class="tab-content">
+       <div id="idcard-tab" class="tab-content">
         <div class="input-group">
           <label>Enter Your Registered Number</label>
           <div class="input-wrapper">
@@ -102,7 +100,7 @@
         </button>
       </div>
 
-      <!-- Decorative Elements -->
+   
       <div class="glow-effect"></div>
     </div>
 
@@ -153,7 +151,7 @@
     </div>
   </footer>
 
-  <!-- Footer ke baad, </body> se pehle -->
+  
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
@@ -171,7 +169,7 @@
   const app = initializeApp(firebaseConfig);
   const db  = getFirestore(app);
 
-  /* ── Particles ── */
+  
   function createParticles() {
     const container = document.getElementById('particles');
     for (let i = 0; i < 50; i++) {
@@ -184,7 +182,7 @@
     }
   }
 
-  /* ── Navbar ── */
+  
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
   });
@@ -210,7 +208,7 @@
     });
   });
 
-  /* ── Tab Switching ── */
+  
   window.switchTab = function(tabName) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     event.target.closest('.tab-btn').classList.add('active');
@@ -218,7 +216,7 @@
     document.getElementById(tabName + '-tab').classList.add('active');
   };
 
-  /* ── Check Result ── */
+  
   document.querySelector('.result-btn').addEventListener('click', async () => {
     const roll = document.querySelector('#result-tab input').value.trim();
     if (!roll) return alert('Please enter your roll number');
